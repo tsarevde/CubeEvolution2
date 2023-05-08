@@ -6,7 +6,7 @@ public class JoystickForMovement : JoystickHandler
 
     private void Update()
     {
-        if (_inputVector.x != 0 || _inputVector.y != 0)
+        if (inputVector.x != 0 || inputVector.y != 0)
         {
             //characterMovement.MoveCharacter(new Vector3(_inputVector.x, 0, _inputVector.y));
             //characterMovement.RotateCharacter(new Vector3(_inputVector.x, 0, _inputVector.y));

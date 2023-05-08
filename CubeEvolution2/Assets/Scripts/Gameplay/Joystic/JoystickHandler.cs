@@ -4,39 +4,41 @@ using UnityEngine.EventSystems;
 
 public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private Image _joystickBackground;
-    [SerializeField] private Image _joystick;
-    [SerializeField] private Image _joystickArea;
+    //Данные джойстика
+    [SerializeField] private Image joystickBackground;
+    [SerializeField] private Image joystick;
+    [SerializeField] private Image joystickArea;
 
-    private Vector2 _joystickBackgroundStartPosition;
+    //Начальная позиция джойстика
+    private Vector2 joystickBackgroundStartPosition;
 
-    protected Vector2 _inputVector;
+    //Направление движения джойстика
+    protected Vector2 inputVector;
 
-    public Color inActiveJoystickColor;
-    public Color activeJoystickColor;
+    private bool joystickIsActive = false;
 
-    private bool _joystickIsActive = false;
 
     private void Start()
     {
         ClickEffect();
 
-        _joystickBackgroundStartPosition = _joystickBackground.rectTransform.anchoredPosition;
+        joystickBackgroundStartPosition = joystickBackground.rectTransform.anchoredPosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joystickPosition;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickBackground.rectTransform, eventData.position, eventData.pressEventCamera, out joystickPosition))
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickBackground.rectTransform, eventData.position, eventData.pressEventCamera, out joystickPosition))
         {
-            joystickPosition.x = (joystickPosition.x * 2 / _joystickBackground.rectTransform.sizeDelta.x);
-            joystickPosition.y = (joystickPosition.y * 2 / _joystickBackground.rectTransform.sizeDelta.y);
+            joystickPosition.x = (joystickPosition.x * 2 / joystickBackground.rectTransform.sizeDelta.x);
+            joystickPosition.y = (joystickPosition.y * 2 / joystickBackground.rectTransform.sizeDelta.y);
 
-            _inputVector = new Vector2(joystickPosition.x, joystickPosition.y);
+            inputVector = new Vector2(joystickPosition.x, joystickPosition.y);
 
-            _inputVector = (_inputVector.magnitude > 1f) ? _inputVector.normalized : _inputVector;
+            inputVector = (inputVector.magnitude > 1f) ? inputVector.normalized : inputVector;
 
-            _joystick.rectTransform.anchoredPosition = new Vector2(_inputVector.x * (_joystickBackground.rectTransform.sizeDelta.x / 2), _inputVector.y * (_joystickBackground.rectTransform.sizeDelta.y / 2));
+            joystick.rectTransform.anchoredPosition = new Vector2(inputVector.x * (joystickBackground.rectTransform.sizeDelta.x / 2), 
+                                                                                    inputVector.y * (joystickBackground.rectTransform.sizeDelta.y / 2));
         }
     }
 
@@ -46,35 +48,36 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
         Vector2 joystickBackgroundPosition;
 
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_joystickArea.rectTransform, eventData.position, eventData.pressEventCamera, out joystickBackgroundPosition))
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickArea.rectTransform, eventData.position, eventData.pressEventCamera, out joystickBackgroundPosition))
         {
-            _joystickBackground.rectTransform.anchoredPosition = new Vector2(joystickBackgroundPosition.x, joystickBackgroundPosition.y);
+            joystickBackground.rectTransform.anchoredPosition = new Vector2(joystickBackgroundPosition.x, joystickBackgroundPosition.y);
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _joystickBackground.rectTransform.anchoredPosition = _joystickBackgroundStartPosition;
+        joystickBackground.rectTransform.anchoredPosition = joystickBackgroundStartPosition;
 
         ClickEffect();
 
-        _inputVector = Vector2.zero;
-        _joystick.rectTransform.anchoredPosition = Vector2.zero;
+        inputVector = Vector2.zero;
+        joystick.rectTransform.anchoredPosition = Vector2.zero;
     }
 
+    //Изменение прозрачности джойстика
     private void ClickEffect()
     {
-        if (!_joystickIsActive)
+        if (!joystickIsActive)
         {
-            _joystick.color = inActiveJoystickColor;
-            _joystickBackground.color = inActiveJoystickColor;
-            _joystickIsActive = true;
+            joystick.color = new Color (255f, 255f, 255f, 0.6f);
+            joystickBackground.color = new Color (255f, 255f, 255f, 0.6f);
+            joystickIsActive = true;
         }
         else
         {
-            _joystick.color = activeJoystickColor;
-            _joystickBackground.color = activeJoystickColor;
-            _joystickIsActive = false;
+            joystick.color = new Color (255f, 255f, 255f, 1f);
+            joystickBackground.color = new Color (255f, 255f, 255f, 1f);
+            joystickIsActive = false;
         }
     }
 }

@@ -651,8 +651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -420, y: 489}
-  m_SizeDelta: {x: 760, y: 900}
+  m_AnchoredPosition: {x: -420, y: 480}
+  m_SizeDelta: {x: 760, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &787174946
 MonoBehaviour:
@@ -765,11 +765,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add537e827b39004db38f9f54287f188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystickBackground: {fileID: 1875186871}
-  _joystick: {fileID: 42123704}
-  _joystickArea: {fileID: 787174949}
-  inActiveJoystickColor: {r: 1, g: 1, b: 1, a: 0.6}
-  activeJoystickColor: {r: 1, g: 1, b: 1, a: 0.8}
+  joystickBackground: {fileID: 1875186871}
+  joystick: {fileID: 42123704}
+  joystickArea: {fileID: 787174949}
 --- !u!1 &835876548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,8 +1575,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 420, y: 489}
-  m_SizeDelta: {x: 760, y: 900}
+  m_AnchoredPosition: {x: 420, y: 480}
+  m_SizeDelta: {x: 760, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928013834
 MonoBehaviour:
@@ -1661,11 +1659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add537e827b39004db38f9f54287f188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystickBackground: {fileID: 1552353728}
-  _joystick: {fileID: 1539935307}
-  _joystickArea: {fileID: 1928013839}
-  inActiveJoystickColor: {r: 1, g: 1, b: 1, a: 0.6}
-  activeJoystickColor: {r: 1, g: 1, b: 1, a: 0.8}
+  joystickBackground: {fileID: 1552353728}
+  joystick: {fileID: 1539935307}
+  joystickArea: {fileID: 1928013839}
 --- !u!114 &1928013839
 MonoBehaviour:
   m_ObjectHideFlags: 0
