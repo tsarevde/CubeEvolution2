@@ -35,7 +35,10 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
             inputVector = new Vector2(joystickPosition.x, joystickPosition.y);
 
-            inputVector = (inputVector.magnitude > 1f) ? inputVector.normalized : inputVector;
+            if (inputVector.magnitude > 1f)
+            {
+                inputVector = inputVector.normalized;
+            }
 
             joystick.rectTransform.anchoredPosition = new Vector2(inputVector.x * (joystickBackground.rectTransform.sizeDelta.x / 2), 
                                                                                     inputVector.y * (joystickBackground.rectTransform.sizeDelta.y / 2));
