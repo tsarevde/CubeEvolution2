@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
-  m_Name: MOUSE
+  m_Name: FIRE
   m_EditorClassIdentifier: 
-  characterName: MOUSE
-  caharacterDescription: The gray cubes give an additional bonus
-  unlockLevel: 3
-  unlockPrice: 0
-  characterModel: {fileID: 4612526320742981418, guid: 61e3d56174d7bb54d96982e97b3b0212,
+  characterModel: {fileID: 5277807713693479683, guid: 38d5b331cdf1bcd43ab0d24ebb8d5291,
     type: 3}
+  _name: FIRE
+  _description: Receives bonus for red cubes
+  unlockLevel: 5
+  unlockPrice: 100
+  currentLevel: 1
+  currentExp: 0
+  _health: 8
+  _damage: 3
+  _speed: 5

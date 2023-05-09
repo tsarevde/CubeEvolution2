@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
-  m_Name: CUBE
+  m_Name: MOUSE
   m_EditorClassIdentifier: 
-  characterName: CUBE
-  caharacterDescription: The white cubes give an additional bonus
-  unlockLevel: 0
-  unlockPrice: 0
-  characterModel: {fileID: 6075600884137668514, guid: 29194268e951a5940981b77790feba41,
+  characterModel: {fileID: 4612526320742981418, guid: 61e3d56174d7bb54d96982e97b3b0212,
     type: 3}
+  _name: MOUSE
+  _description: Receives bonus for gray cubes
+  unlockLevel: 3
+  unlockPrice: 0
+  currentLevel: 1
+  currentExp: 0
+  _health: 5
+  _damage: 2
+  _speed: 5

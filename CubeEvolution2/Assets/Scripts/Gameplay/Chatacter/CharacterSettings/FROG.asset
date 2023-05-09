@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
-  m_Name: FIRE
+  m_Name: FROG
   m_EditorClassIdentifier: 
-  characterName: FIRE
-  caharacterDescription: The red cubes give an additional bonus
-  unlockLevel: 5
-  unlockPrice: 100
-  characterModel: {fileID: 5277807713693479683, guid: 38d5b331cdf1bcd43ab0d24ebb8d5291,
+  characterModel: {fileID: 2657187032085026553, guid: 32b870e623dd9ab43af9e3779384d47e,
     type: 3}
+  _name: FROG
+  _description: Receives bonus for green cubes
+  unlockLevel: 8
+  unlockPrice: 250
+  currentLevel: 1
+  currentExp: 0
+  _health: 12
+  _damage: 4
+  _speed: 6
