@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
-    [Header("Object for following")]
     [SerializeField] private GameObject mainCharacter;
 
-    [Header("Camera propertys")]
     [SerializeField] private float returnSpeed;
     [SerializeField] private float height;           
     [SerializeField] private float rearDistance;

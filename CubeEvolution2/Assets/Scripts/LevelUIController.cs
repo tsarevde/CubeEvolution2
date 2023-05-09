@@ -27,6 +27,6 @@ public class LevelUIController : MonoBehaviour
     private void TextUpdateLevelCube()
     {
         TextCubeLevel.SetText(DataEnemy.currentLevel.ToString());
-        TextCubeExp.SetText(DataEnemy.currentExp + "/" + DataEnemy.enoughtExp);
+        TextCubeExp.SetText($"{DataEnemy.currentExp}/{DataEnemy.enoughtExp}");
     }
 }
