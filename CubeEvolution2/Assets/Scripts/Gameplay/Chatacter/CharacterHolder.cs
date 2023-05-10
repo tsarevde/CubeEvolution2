@@ -4,6 +4,6 @@ public class CharacterHolder : CharacterList
 {
     void Start()
     {
-        Instantiate(_character[2].Model, transform.position, transform.rotation, this.transform);
+        Instantiate(_character[CharacterSelection.SelectionCharacter].Model, transform.position + new Vector3(0, -1 , 0), transform.rotation, this.transform);
     }
 }
