@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
-  m_Name: CUBE
+  m_Name: 01_CUBE
   m_EditorClassIdentifier: 
   _characterModel: {fileID: 2550770271156608682, guid: 29194268e951a5940981b77790feba41,
     type: 3}
@@ -21,6 +21,9 @@ MonoBehaviour:
   _health: 3
   _damage: 1
   _speed: 4
+  _healthMax: 6
+  _damageMax: 3
+  _speedMax: 6
   _currentLevel: 1
   _maxLevel: 10
   _currentExp: 0

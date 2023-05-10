@@ -23,6 +23,7 @@ public class CubeRotateUI : MonoBehaviour
     private void OnMouseDown()
     {
         dragging = true;
+
     }
     private void OnMouseUp()
     {

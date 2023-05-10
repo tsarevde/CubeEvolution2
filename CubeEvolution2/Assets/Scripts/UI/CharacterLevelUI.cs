@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CharacterLevelUI : CharacterList
+public class CharacterLevelUI : CharacterLevel
 {
+    // Отображение уровня игрока в UI
     [SerializeField] private Image CubeExp;
     [SerializeField] private TextMeshProUGUI TextCubeExp;
     [SerializeField] private TextMeshProUGUI TextCubeLevel;
@@ -13,12 +14,14 @@ public class CharacterLevelUI : CharacterList
     private void Start()
     {
         CharacterSelection.onChangedCharacter += UpdateLevelText;
+        CharacterLevel.onExpChanged += UpdateLevelText;
         UpdateLevelText();
     }
 
     private void OnDisable()
     {
         CharacterSelection.onChangedCharacter -= UpdateLevelText;
+        CharacterLevel.onExpChanged -= UpdateLevelText;
     }
 
     private void SetProgressFill (int selectedIndex)

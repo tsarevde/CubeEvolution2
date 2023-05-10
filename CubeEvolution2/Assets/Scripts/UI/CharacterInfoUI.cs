@@ -1,14 +1,11 @@
 using UnityEngine;
 using TMPro;
-using System;
 
 public class CharacterInfoUI : CharacterList
 {
+    // Отображение Названия, Описания персонажа в UI
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _desriptionText;
-    [SerializeField] private TextMeshProUGUI _healthText;
-    [SerializeField] private TextMeshProUGUI _damageText;
-    [SerializeField] private TextMeshProUGUI _speedText;
 
     private void Start()
     {
@@ -27,8 +24,5 @@ public class CharacterInfoUI : CharacterList
 
         _nameText.SetText(_character[selectedIndex].Name.ToString());
         _desriptionText.SetText(_character[selectedIndex].Description.ToString());
-        _healthText.SetText(_character[selectedIndex].Health.ToString());
-        _damageText.SetText(_character[selectedIndex].Damage.ToString());
-        _speedText.SetText(_character[selectedIndex].Speed.ToString());
     }
 }
