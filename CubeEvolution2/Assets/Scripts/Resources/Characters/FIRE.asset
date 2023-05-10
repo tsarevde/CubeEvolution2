@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
   m_Name: FIRE
   m_EditorClassIdentifier: 
-  characterModel: {fileID: 5277807713693479683, guid: 38d5b331cdf1bcd43ab0d24ebb8d5291,
+  _characterModel: {fileID: 5277807713693479683, guid: 38d5b331cdf1bcd43ab0d24ebb8d5291,
     type: 3}
   _name: FIRE
   _description: Receives bonus for red cubes
-  unlockLevel: 5
-  unlockPrice: 100
-  currentLevel: 1
-  currentExp: 0
+  _unlockLevel: 10
+  _unlockPrice: 130
   _health: 8
   _damage: 3
   _speed: 5
+  _currentLevel: 1
+  _maxLevel: 10
+  _currentExp: 4
+  _enoughtExp: 5

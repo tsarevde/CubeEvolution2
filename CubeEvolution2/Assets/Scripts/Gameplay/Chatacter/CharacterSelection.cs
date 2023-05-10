@@ -1,6 +1,9 @@
+using System;
+
 public class CharacterSelection : CharacterList
 {
-    public int SelectionCharacter { get; private set; } = 0;
+    public static int SelectionCharacter { get; private set; } = 0;
+    public static Action onChangedCharacter;
 
     void Start()
     {
@@ -23,13 +26,14 @@ public class CharacterSelection : CharacterList
             SelectionCharacter = _character.Length - 1;
         else SelectionCharacter--;
 
-        SpawnCharacter(SelectionCharacter);
         DestroyCharacter();
+        SpawnCharacter(SelectionCharacter);
     }
 
-    private void SpawnCharacter(int number)
+    private void SpawnCharacter(int selectedIndex)
     {
-        Instantiate(_character[number].Model, transform.position, transform.rotation, this.transform);
+        Instantiate(_character[selectedIndex].Model, transform.position, transform.rotation, this.transform);
+        onChangedCharacter?.Invoke();
     }
     private void DestroyCharacter()
     {

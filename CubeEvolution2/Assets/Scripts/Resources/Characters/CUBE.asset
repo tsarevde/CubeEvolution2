@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
   m_Name: CUBE
   m_EditorClassIdentifier: 
-  characterModel: {fileID: 2550770271156608682, guid: 29194268e951a5940981b77790feba41,
+  _characterModel: {fileID: 2550770271156608682, guid: 29194268e951a5940981b77790feba41,
     type: 3}
   _name: CUBE
   _description: Receives bonus for white cubes
-  unlockLevel: 0
-  unlockPrice: 0
-  currentLevel: 1
-  currentExp: 0
+  _unlockLevel: 0
+  _unlockPrice: 0
   _health: 3
   _damage: 1
   _speed: 4
+  _currentLevel: 1
+  _maxLevel: 10
+  _currentExp: 0
+  _enoughtExp: 5

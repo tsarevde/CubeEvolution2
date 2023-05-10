@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
   m_Name: FROG
   m_EditorClassIdentifier: 
-  characterModel: {fileID: 2657187032085026553, guid: 32b870e623dd9ab43af9e3779384d47e,
+  _characterModel: {fileID: 2657187032085026553, guid: 32b870e623dd9ab43af9e3779384d47e,
     type: 3}
   _name: FROG
   _description: Receives bonus for green cubes
-  unlockLevel: 8
-  unlockPrice: 250
-  currentLevel: 1
-  currentExp: 0
+  _unlockLevel: 16
+  _unlockPrice: 250
   _health: 12
   _damage: 4
   _speed: 6
+  _currentLevel: 1
+  _maxLevel: 10
+  _currentExp: 3
+  _enoughtExp: 5
