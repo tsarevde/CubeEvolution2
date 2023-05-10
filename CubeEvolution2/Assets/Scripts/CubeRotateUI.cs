@@ -1,42 +1,31 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class CubeRotateUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
+public class CubeRotateUI : MonoBehaviour
 {
-    //[SerializeField] private float rotationSpeed = 10f;
-    // [SerializeField] private Rigidbody rb;
-    // private bool dragging = false;
+    [SerializeField] private int rotationSpeed = 20;
+    [SerializeField] private Rigidbody rb;
+    private bool dragging = false;
 
-    // private void Update()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-    //         dragging = true;
-    //     }
-    //     if (Input.GetMouseButtonUp(0))
-    //         dragging = false;
-    // }
-    // private void FixedUpdate() 
-    // {
-    //     if (dragging)
-    //     {
-    //         float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
-    //         rb.AddTorque(Vector3.down * x, ForceMode.VelocityChange);
-    //     }
-    // }
-
-    public void OnDrag(PointerEventData eventData)
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+    }
+    
+    private void FixedUpdate() 
+    {
+        if (dragging)
+        {
+            float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
+            rb.AddTorque(Vector3.down * x, ForceMode.VelocityChange);
+        }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void OnMouseDown()
     {
-
+        dragging = true;
     }
-
-    public void OnPointerUp(PointerEventData eventData)
+    private void OnMouseUp()
     {
-
+        dragging = false;
     }
 }

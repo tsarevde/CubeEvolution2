@@ -1,8 +1,5 @@
-using UnityEngine;
-
-public class CharacterSelection : MonoBehaviour
+public class CharacterSelection : CharacterList
 {
-    [SerializeField] private Character[] _character;
     public int SelectionCharacter { get; private set; } = 0;
 
     void Start()
