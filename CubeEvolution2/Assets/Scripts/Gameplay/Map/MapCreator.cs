@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MapCreator : MapsList
 {
-    [SerializeField] private Vector3[] _mapCoordinates;
+    [SerializeField] public Vector3[] _mapCoordinates;
     void Start()
     {
         for (int index = 0; index < _mapCoordinates.Length; index++)

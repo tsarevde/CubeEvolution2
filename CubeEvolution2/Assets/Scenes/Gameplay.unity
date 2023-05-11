@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158880898}
   - component: {fileID: 158880899}
+  - component: {fileID: 158880900}
   m_Layer: 0
   m_Name: MapCreator
   m_TagString: Untagged
@@ -260,6 +261,22 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -20}
   - {x: 20, y: 0, z: -20}
   - {x: -20, y: 0, z: -20}
+--- !u!114 &158880900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158880897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c35bb6d4af5264b9a3a16facd3e05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapCreator: {fileID: 158880899}
+  index: 0
+  generatorAmount: 14
+  lastCoordinates: 
 --- !u!1 &188753452
 GameObject:
   m_ObjectHideFlags: 0
