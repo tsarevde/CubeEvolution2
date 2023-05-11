@@ -15,4 +15,4 @@ MonoBehaviour:
   _foodGeneratorModel: {fileID: 3435920699374264370, guid: 7afab219764f78148bdad533f3db2416,
     type: 3}
   _food: {fileID: 11400000, guid: c3c7ae7b4c40c404bb7212cea7854410, type: 2}
-  _spawnTime: 1
+  _spawnTime: 5

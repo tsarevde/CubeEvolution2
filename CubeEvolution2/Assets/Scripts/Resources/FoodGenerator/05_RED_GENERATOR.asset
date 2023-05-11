@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodGeneratorModel: {fileID: 3435920699374264370, guid: 7afab219764f78148bdad533f3db2416,
     type: 3}
-  _food: {fileID: 11400000, guid: 1370acd1e5abc914ba1508044fb119fb, type: 2}
-  _spawnTime: 1
+  _food: {fileID: 11400000, guid: 57ccae3f24650e24095a6e8f2c8dc1a3, type: 2}
+  _spawnTime: 5

@@ -46,7 +46,9 @@ public class FoodGeneratorCreator : FoodGeneratorList
 
     private void SpawnObject(int randomPosition)
     {
-        Instantiate(_foodGenerator[index].FoodGeneratorModel, _mapCreator._mapCoordinates[randomPosition] + new Vector3(0, -0.5f, 0), transform.rotation, this.transform);
+        GameObject generator = Instantiate(_foodGenerator[index].FoodGeneratorModel, _mapCreator._mapCoordinates[randomPosition] + new Vector3(0, -0.5f, 0), transform.rotation, this.transform);
+        generator.GetComponent<FoodGeneratorHandler>().FoodGeneratorNumber = index;
+
         index++;
     }
 }
