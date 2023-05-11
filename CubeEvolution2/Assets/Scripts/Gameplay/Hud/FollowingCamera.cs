@@ -4,26 +4,30 @@ public class FollowingCamera : MonoBehaviour
 {
     [SerializeField] private GameObject mainCharacter;
 
-    [SerializeField] private float returnSpeed;
-    [SerializeField] private float height;           
-    [SerializeField] private float rearDistance;
+    [SerializeField] private float _returnSpeed = 1.5f;
+    [SerializeField] private float _height = 10f;           
+    [SerializeField] private float _backDistance = 6f;
+    [SerializeField] private float range = 0.01f;
 
     private Vector3 currentVector;
 
-    void Start()
+    private void Start()
     {                                    
-        transform.position = new Vector3(mainCharacter.transform.position.x, mainCharacter.transform.position.y + height, mainCharacter.transform.position.z - rearDistance);
+        transform.position = new Vector3(mainCharacter.transform.position.x, mainCharacter.transform.position.y + _height, mainCharacter.transform.position.z - _backDistance);
         transform.rotation = Quaternion.LookRotation(mainCharacter.transform.position - transform.position);
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         CameraMove();
+
     }
 
-    void CameraMove()
+    private void CameraMove()
     {
-        currentVector = new Vector3(mainCharacter.transform.position.x, mainCharacter.transform.position.y + height, mainCharacter.transform.position.z - rearDistance);
-        transform.position = Vector3.Lerp(transform.position, currentVector, returnSpeed * Time.deltaTime);
+        currentVector = new Vector3(mainCharacter.transform.position.x, mainCharacter.transform.position.y + _height, mainCharacter.transform.position.z - _backDistance);
+
+        if (Vector3.Distance(currentVector, transform.position) > range)
+            transform.position = Vector3.Lerp(transform.position, currentVector, _returnSpeed * Time.fixedDeltaTime);
     }
 }
