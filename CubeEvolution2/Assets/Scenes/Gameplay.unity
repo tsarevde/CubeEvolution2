@@ -254,7 +254,12 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 10}
   - {x: 20, y: 0, z: 10}
   - {x: -20, y: 0, z: 10}
-  _mapSize: 9
+  - {x: 0, y: 0, z: 20}
+  - {x: 20, y: 0, z: 20}
+  - {x: -20, y: 0, z: 20}
+  - {x: 0, y: 0, z: -20}
+  - {x: 20, y: 0, z: -20}
+  - {x: -20, y: 0, z: -20}
 --- !u!1 &188753452
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 2444451868092616633, guid: 1d04359880a2e0b4fba945f1f423d162,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2444451868092616633, guid: 1d04359880a2e0b4fba945f1f423d162,
         type: 3}
@@ -631,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.5
+      value: -30.5
       objectReference: {fileID: 0}
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
@@ -945,7 +950,7 @@ PrefabInstance:
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 32
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
@@ -1050,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.5
+      value: 30.5
       objectReference: {fileID: 0}
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
@@ -1473,7 +1478,7 @@ PrefabInstance:
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 32
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 1412952945861145059, guid: b19fee47aa86cca46852cf68a6ca43f0,
         type: 3}

@@ -26,7 +26,7 @@ public class RoundTimer : MonoBehaviour
     {
         while (true)
         {
-            if (second == 60)
+            if (second == 59)
             {
                 minutes++;
                 second = 0;
