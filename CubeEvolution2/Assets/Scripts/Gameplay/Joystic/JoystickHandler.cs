@@ -5,12 +5,13 @@ using UnityEngine.EventSystems;
 public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     //Данные джойстика
-    [SerializeField] private Image joystickBackground;
-    [SerializeField] private Image joystick;
-    [SerializeField] private Image joystickArea;
+    [SerializeField] protected Image joystickBackground;
+    [SerializeField] protected Image joystick;
+    [SerializeField] protected Image joystickArea;
+    [SerializeField] protected float range;
 
     //Начальная позиция джойстика
-    private Vector2 joystickBackgroundStartPosition;
+    protected Vector2 joystickBackgroundStartPosition;
 
     //Направление движения джойстика
     protected Vector2 inputVector;
@@ -57,7 +58,7 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
         }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public virtual void OnPointerUp(PointerEventData eventData)
     {
         joystickBackground.rectTransform.anchoredPosition = joystickBackgroundStartPosition;
 
@@ -68,18 +69,18 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
     }
 
     //Изменение прозрачности джойстика
-    private void ClickEffect()
+    public void ClickEffect()
     {
         if (!joystickIsActive)
         {
             joystick.color = new Color (255f, 255f, 255f, 0.6f);
-            joystickBackground.color = new Color (255f, 255f, 255f, 0.6f);
+            //joystickBackground.color = new Color (255f, 255f, 255f, 0.6f);
             joystickIsActive = true;
         }
         else
         {
             joystick.color = new Color (255f, 255f, 255f, 1f);
-            joystickBackground.color = new Color (255f, 255f, 255f, 1f);
+            //joystickBackground.color = new Color (255f, 255f, 255f, 1f);
             joystickIsActive = false;
         }
     }

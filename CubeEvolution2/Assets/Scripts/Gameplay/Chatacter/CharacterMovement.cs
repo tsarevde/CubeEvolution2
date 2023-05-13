@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private StatusBarCharacter _statusBar;
     [SerializeField] private float _moveSpeed = 3;
     [SerializeField]  private float _rotateSpeed = 0.35f;
     private Rigidbody _rigidbody;
@@ -15,9 +16,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void MoveCharacter(Vector3 moveDirection)
     {
-
         Vector3 offset = moveDirection * _moveSpeed * Time.deltaTime;
         _rigidbody.MovePosition(_rigidbody.position + offset);
+
+        _statusBar.SetPosition(transform.position);
     }
 
     public void RotateCharacter(Vector3 moveDirection) 

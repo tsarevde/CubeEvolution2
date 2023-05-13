@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 public class FoodHandler : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class FoodHandler : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-3f,3f), 3, UnityEngine.Random.Range(-3f,3f)), ForceMode.Impulse);
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-5f,5f), 4, UnityEngine.Random.Range(-5f,5f)), ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision other) 

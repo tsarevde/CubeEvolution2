@@ -29,7 +29,7 @@ public class RoundTimer : MonoBehaviour
             if (second == 59)
             {
                 minutes++;
-                second = 0;
+                second = -1;
             }
 
             second++;
