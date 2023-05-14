@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
-public class StatusBarCharacter : CharacterHolder
+public class StatusBarCharacter : CharacterList
 {
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _reloadingBar;
@@ -17,18 +18,24 @@ public class StatusBarCharacter : CharacterHolder
 
     private void Start()
     {
-        _currentHealth = _character[CharacterSelection.SelectionCharacter].Health;
-        _currentReloading = _character[CharacterSelection.SelectionCharacter].Reloading;
+        CharacterAttack.onReloadingAmmo += ReloadingBar;
         
-        SetProgressFill();
+        _currentHealth = _character[CharacterSelection.SelectionCharacter].Health;
+        
+        UpdateHealthBar();
+        ReloadingBar(_character[CharacterSelection.SelectionCharacter].Reloading);
     }
 
-    private void SetProgressFill()
+    private void UpdateHealthBar()
     {
         _healthBar.fillAmount = Mathf.InverseLerp(0f, _character[CharacterSelection.SelectionCharacter].Health, _currentHealth);
-        _reloadingBar.fillAmount = Mathf.InverseLerp(0f, _character[CharacterSelection.SelectionCharacter].Reloading, _currentReloading);
 
         _healthText.SetText(_currentHealth.ToString());
+    }
+
+    private void ReloadingBar(float currentTime)
+    {
+        _reloadingBar.fillAmount = Mathf.InverseLerp(0f, _character[CharacterSelection.SelectionCharacter].Reloading, currentTime);
     }
 }
 

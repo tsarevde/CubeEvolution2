@@ -24,6 +24,8 @@ MonoBehaviour:
   _healthMax: 1700
   _damageMax: 380
   _speedMax: 8
+  Reloading: 3
+  BulletAmount: 2
   _currentLevel: 1
   _maxLevel: 10
   _currentExp: 4

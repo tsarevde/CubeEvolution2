@@ -21,4 +21,10 @@ public class Creature : ScriptableObject
 
     [SerializeField] private float _eatPoint;
     public float EatPoint { get => _eatPoint; set => _eatPoint = value;}
+
+    [Header("Attack Settings")]
+    public float Reloading = 3f;
+    public float AttackDistance = 10;
+    public int BulletAmount= 3;
+    public int BulletSpeed = 3;
 }

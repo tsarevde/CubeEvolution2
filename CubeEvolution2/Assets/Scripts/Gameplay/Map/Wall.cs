@@ -20,7 +20,7 @@ public class Wall : MonoBehaviour
         _addSize = new Vector3(.05f, .05f, .05f);
     }
 
-    IEnumerator ScaleUp()
+    private IEnumerator ScaleUp()
     {
         bool t = true;
 
@@ -35,7 +35,7 @@ public class Wall : MonoBehaviour
 
         StartCoroutine(ScaleDown());
     }
-    IEnumerator ScaleDown()
+    private IEnumerator ScaleDown()
     {
         bool t = true;
 

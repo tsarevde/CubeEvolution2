@@ -1,6 +1,8 @@
 using UnityEngine;
+using System;
+using System.Collections;
 
-public class CharacterAttack : MonoBehaviour
+public class CharacterAttack : CharacterList
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _shootPoint;
@@ -9,6 +11,8 @@ public class CharacterAttack : MonoBehaviour
 
     [SerializeField] public GameObject ShootLine;
     [SerializeField] private float _attackDistance = 10f;
+    private bool _isHaveAmmo = true;
+    public static Action<float> onReloadingAmmo;
 
     public void SetAttackDirection(Vector3 direction)
     {
@@ -43,6 +47,34 @@ public class CharacterAttack : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject bullet = Instantiate(_bullet, _point.transform.position, _point.transform.rotation);
+        if (_isHaveAmmo) StartCoroutine(SpawnBullet());
+    }
+
+    private IEnumerator SpawnBullet()
+    {
+        _isHaveAmmo = false;
+
+        for (int i = 0; i < _character[CharacterSelection.SelectionCharacter].BulletAmount; i++)
+        {
+            GameObject bullet = Instantiate(_bullet, _point.transform.position, _point.transform.rotation);
+            yield return new WaitForSeconds(.2f);
+        }
+
+        StartCoroutine(Reload());
+    }
+
+    private IEnumerator Reload()
+    {
+        float second = 0;
+
+        while (second < _character[CharacterSelection.SelectionCharacter].Reloading)
+        {
+            onReloadingAmmo?.Invoke(second);
+
+            second += .1f;
+            yield return new WaitForSeconds(.1f);
+        }
+
+        _isHaveAmmo = true;
     }
 }
