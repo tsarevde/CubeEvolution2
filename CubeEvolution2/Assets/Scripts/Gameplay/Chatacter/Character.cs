@@ -32,7 +32,8 @@ public class Character : ScriptableObject
     public float HealthMax { get => _healthMax; }
     public float DamageMax { get => _damageMax; }
     public float SpeedMax { get => _speedMax; }
-    public static float StatsMax { get; } = 20f;
+    public static float StatsMax { get; } = 2000f;
+    public float Reloading { get; } = 3f;
 
     [Header("Character Levels")]
     [SerializeField] private int _currentLevel = 1;

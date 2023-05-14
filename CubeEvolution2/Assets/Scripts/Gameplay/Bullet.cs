@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 8f;
-    
+
     private void Start()
     {
         gameObject.GetComponent<Rigidbody>().velocity = transform.forward * _speed;
@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Creature")
         {
+            other.gameObject.GetComponent<Wall>().Touch();
             Destroy(gameObject);
         }
     }

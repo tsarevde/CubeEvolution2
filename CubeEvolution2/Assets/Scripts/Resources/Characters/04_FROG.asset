@@ -18,11 +18,11 @@ MonoBehaviour:
   _description: Receives bonus for green cubes
   _unlockLevel: 16
   _unlockPrice: 250
-  _health: 12
-  _damage: 4
+  _health: 364
+  _damage: 67
   _speed: 6
-  _healthMax: 18
-  _damageMax: 8
+  _healthMax: 2000
+  _damageMax: 500
   _speedMax: 10
   _currentLevel: 1
   _maxLevel: 10

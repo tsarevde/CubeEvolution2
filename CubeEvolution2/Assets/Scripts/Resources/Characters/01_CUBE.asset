@@ -18,11 +18,11 @@ MonoBehaviour:
   _description: Receives bonus for white cubes
   _unlockLevel: 0
   _unlockPrice: 0
-  _health: 3
-  _damage: 1
+  _health: 176
+  _damage: 46
   _speed: 4
-  _healthMax: 6
-  _damageMax: 3
+  _healthMax: 1000
+  _damageMax: 120
   _speedMax: 6
   _currentLevel: 1
   _maxLevel: 10

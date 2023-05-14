@@ -33,9 +33,9 @@ public class CharacterStatsBarUI : CharacterList
         progressValue = Mathf.InverseLerp(0f, Character.StatsMax, _character[selectedIndex].DamageMax);
         _statsMax[1].fillAmount = progressValue;
 
-        progressValue = Mathf.InverseLerp(0f, Character.StatsMax, _character[selectedIndex].Speed);
+        progressValue = Mathf.InverseLerp(0f, 10f, _character[selectedIndex].Speed);
         _currentStats[2].fillAmount = progressValue;
-        progressValue = Mathf.InverseLerp(0f, Character.StatsMax, _character[selectedIndex].SpeedMax);
+        progressValue = Mathf.InverseLerp(0f, 10f, _character[selectedIndex].SpeedMax);
         _statsMax[2].fillAmount = progressValue;
     }
 }

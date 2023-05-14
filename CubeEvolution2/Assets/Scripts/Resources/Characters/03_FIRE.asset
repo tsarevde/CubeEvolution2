@@ -18,11 +18,11 @@ MonoBehaviour:
   _description: Receives bonus for red cubes
   _unlockLevel: 10
   _unlockPrice: 130
-  _health: 8
-  _damage: 3
+  _health: 230
+  _damage: 52
   _speed: 5
-  _healthMax: 14
-  _damageMax: 6
+  _healthMax: 1700
+  _damageMax: 380
   _speedMax: 8
   _currentLevel: 1
   _maxLevel: 10

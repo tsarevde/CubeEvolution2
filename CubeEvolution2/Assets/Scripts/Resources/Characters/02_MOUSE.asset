@@ -18,11 +18,11 @@ MonoBehaviour:
   _description: Receives bonus for gray cubes
   _unlockLevel: 4
   _unlockPrice: 80
-  _health: 5
-  _damage: 2
+  _health: 254
+  _damage: 32
   _speed: 5
-  _healthMax: 8
-  _damageMax: 4
+  _healthMax: 1400
+  _damageMax: 200
   _speedMax: 7
   _currentLevel: 1
   _maxLevel: 10
