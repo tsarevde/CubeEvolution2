@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class FollowingCamera : MonoBehaviour
+public class FollowingCamera : CharacterSelection
 {
     [SerializeField] private GameObject mainCharacter;
 
-    [SerializeField] private float _returnSpeed = 1.5f;
+    [SerializeField] private float _returnSpeed;
     [SerializeField] private float _height = 10f;           
     [SerializeField] private float _backDistance = 6f;
     [SerializeField] private float range = 0.01f;
@@ -12,7 +12,9 @@ public class FollowingCamera : MonoBehaviour
     private Vector3 currentVector;
 
     private void Start()
-    {                                    
+    {                
+        _returnSpeed =  _character[SelectionCharacter].Speed / 2.65f;
+                           
         transform.position = new Vector3(mainCharacter.transform.position.x, mainCharacter.transform.position.y + _height, mainCharacter.transform.position.z - _backDistance);
         transform.rotation = Quaternion.LookRotation(mainCharacter.transform.position - transform.position);
     }
