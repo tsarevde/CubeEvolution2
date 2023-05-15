@@ -1,19 +1,17 @@
 using UnityEngine;
 using System;
 
-public class CharacterLevel : CharacterList
+public class CharacterLevel : CharacterSelection
 {
-    private int selectedIndex;
     public static Action onExpChanged;
     
     public void ExpGive(int amountExp)
     {
-        selectedIndex = CharacterSelection.SelectionCharacter;
 
         if (amountExp > 0)
-            _character[selectedIndex].CurrentExp += amountExp;
+            _character[SelectionCharacter].CurrentExp += amountExp;
 
-        if (_character[selectedIndex].CurrentExp >= _character[selectedIndex].EnoughtExp)
+        if (_character[SelectionCharacter].CurrentExp >= _character[SelectionCharacter].EnoughtExp)
             LevelUP();
         
         onExpChanged?.Invoke();
@@ -21,9 +19,9 @@ public class CharacterLevel : CharacterList
 
     private void LevelUP()
     {
-        _character[selectedIndex].CurrentExp -= _character[selectedIndex].EnoughtExp;
-        _character[selectedIndex].EnoughtExp = Mathf.CeilToInt(_character[selectedIndex].EnoughtExp*1.15f);
+        _character[SelectionCharacter].CurrentExp -= _character[SelectionCharacter].EnoughtExp;
+        _character[SelectionCharacter].EnoughtExp = Mathf.CeilToInt(_character[SelectionCharacter].EnoughtExp*1.15f);
 
-        _character[selectedIndex].CurrentLevel += 1;
+        _character[SelectionCharacter].CurrentLevel += 1;
     }
 }

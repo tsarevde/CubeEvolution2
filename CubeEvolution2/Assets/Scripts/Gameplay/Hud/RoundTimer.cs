@@ -12,14 +12,7 @@ public class RoundTimer : MonoBehaviour
 
     void Start()
     {
-        ResetTimer();
         StartCoroutine(Timer());
-    }
-
-    private void ResetTimer()
-    {
-        second = 0;
-        minutes = 0;
     }
 
     IEnumerator Timer()

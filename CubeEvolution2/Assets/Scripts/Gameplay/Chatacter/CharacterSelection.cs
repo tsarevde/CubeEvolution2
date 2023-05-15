@@ -3,41 +3,23 @@ using System;
 public class CharacterSelection : CharacterList
 {
     public static int SelectionCharacter { get; private set; } = 0;
-    public static Action onChangedCharacter;
+    protected static Action onSelectCharacter;
 
-    void Start()
-    {
-        SpawnCharacter(SelectionCharacter);
-    }
-
-    public void NextCharacter()
+    private void NextCharacter()
     {
         if (SelectionCharacter < _character.Length - 1)
             SelectionCharacter++;
         else SelectionCharacter = 0;
 
-        DestroyCharacter();
-        SpawnCharacter(SelectionCharacter);
+        onSelectCharacter?.Invoke();
     }
 
-    public void PreviousCharacter()
+    private void PreviousCharacter()
     {
         if (SelectionCharacter <= 0)
             SelectionCharacter = _character.Length - 1;
         else SelectionCharacter--;
 
-        DestroyCharacter();
-        SpawnCharacter(SelectionCharacter);
+        onSelectCharacter?.Invoke();
     }
-
-    private void SpawnCharacter(int selectedIndex)
-    {
-        Instantiate(_character[selectedIndex].Model, transform.position, transform.rotation, this.transform);
-        onChangedCharacter?.Invoke();
-    }
-    private void DestroyCharacter()
-    {
-        Destroy(this.transform.GetChild(0).gameObject);
-    }
-
 }

@@ -18,9 +18,7 @@ public class FoodGeneratorCreator : FoodGeneratorList
     private void CreateGenerator()
     {
         while (index != generatorAmount)
-        {
             GetRandomNumber();
-        }
     }
 
     private void GetRandomNumber()

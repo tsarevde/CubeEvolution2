@@ -9,34 +9,30 @@ public class CharacterLevelUI : CharacterLevel
     [SerializeField] private TextMeshProUGUI TextCubeExp;
     [SerializeField] private TextMeshProUGUI TextCubeLevel;
 
-    private float progressValue;
-
     private void Start()
     {
-        CharacterSelection.onChangedCharacter += UpdateLevelText;
-        CharacterLevel.onExpChanged += UpdateLevelText;
+        CharacterSpawn.onChangedCharacter += UpdateLevelText;
+        onExpChanged += UpdateLevelText;
         UpdateLevelText();
     }
 
     private void OnDisable()
     {
-        CharacterSelection.onChangedCharacter -= UpdateLevelText;
-        CharacterLevel.onExpChanged -= UpdateLevelText;
+        CharacterSpawn.onChangedCharacter -= UpdateLevelText;
+        onExpChanged -= UpdateLevelText;
     }
 
-    private void SetProgressFill (int selectedIndex)
+    private void SetProgressFill ()
     {
-        progressValue = Mathf.InverseLerp(0f, _character[selectedIndex].EnoughtExp, _character[selectedIndex].CurrentExp);
-        CubeExp.fillAmount = progressValue;
+        CubeExp.fillAmount = Mathf.InverseLerp(0f, _character[SelectionCharacter].EnoughtExp, _character[SelectionCharacter].CurrentExp);
     }
 
     private void UpdateLevelText()
     {
-        int selectedIndex = CharacterSelection.SelectionCharacter;
 
-        TextCubeLevel.SetText(_character[selectedIndex].CurrentLevel.ToString());
-        TextCubeExp.SetText($"{_character[selectedIndex].CurrentExp}/{_character[selectedIndex].EnoughtExp}");
+        TextCubeLevel.SetText(_character[SelectionCharacter].CurrentLevel.ToString());
+        TextCubeExp.SetText($"{_character[SelectionCharacter].CurrentExp}/{_character[SelectionCharacter].EnoughtExp}");
 
-        SetProgressFill(selectedIndex);
+        SetProgressFill();
     }
 }

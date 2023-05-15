@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class CharacterInfoUI : CharacterList
+public class CharacterInfoUI : CharacterSelection
 {
     // Отображение Названия, Описания персонажа в UI
     [SerializeField] private TextMeshProUGUI _nameText;
@@ -9,20 +9,18 @@ public class CharacterInfoUI : CharacterList
 
     private void Start()
     {
-        CharacterSelection.onChangedCharacter += UpdateText;
+        CharacterSpawn.onChangedCharacter += UpdateText;
         UpdateText();
     }
 
     private void OnDisable()
     {
-        CharacterSelection.onChangedCharacter -= UpdateText;
+        CharacterSpawn.onChangedCharacter -= UpdateText;
     }
 
     private void UpdateText()
     {
-        int selectedIndex = CharacterSelection.SelectionCharacter;
-
-        _nameText.SetText(_character[selectedIndex].Name.ToString());
-        _desriptionText.SetText(_character[selectedIndex].Description.ToString());
+        _nameText.SetText(_character[SelectionCharacter].Name.ToString());
+        _desriptionText.SetText(_character[SelectionCharacter].Description.ToString());
     }
 }

@@ -2,15 +2,13 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public class CharacterAttack : CharacterList
+public class CharacterAttack : RoundData
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _shootPoint;
     [SerializeField] private GameObject _point;
-    private Vector3 _attackDirection;
 
     [SerializeField] public GameObject ShootLine;
-    [SerializeField] private float _attackDistance = 10f;
     private bool _isHaveAmmo = true;
     public static Action<float> onReloadingAmmo;
 
@@ -19,13 +17,13 @@ public class CharacterAttack : CharacterList
         Ray ray = new Ray(_shootPoint.transform.position + new Vector3(0, -.498f, 0), _shootPoint.transform.forward);
 
         RaycastHit _hit;
-        if (Physics.Raycast(ray, out _hit, _attackDistance))
+        if (Physics.Raycast(ray, out _hit, _character[SelectionCharacter].AttackDistance))
         {
             ShowLine(_hit.distance);
         }
         else
         {
-            ShowLine(_attackDistance);
+            ShowLine(_character[SelectionCharacter].AttackDistance);
         }
 
     }
@@ -54,7 +52,7 @@ public class CharacterAttack : CharacterList
     {
         _isHaveAmmo = false;
 
-        for (int i = 0; i < _character[CharacterSelection.SelectionCharacter].BulletAmount; i++)
+        for (int i = 0; i < _character[SelectionCharacter].BulletAmount; i++)
         {
             GameObject bullet = Instantiate(_bullet, _point.transform.position, _point.transform.rotation);
             yield return new WaitForSeconds(.2f);
@@ -67,7 +65,7 @@ public class CharacterAttack : CharacterList
     {
         float second = 0;
 
-        while (second < _character[CharacterSelection.SelectionCharacter].Reloading)
+        while (second < _character[SelectionCharacter].Reloading)
         {
             onReloadingAmmo?.Invoke(second);
 

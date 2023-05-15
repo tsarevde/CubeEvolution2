@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterHolder : CharacterList
+public class CharacterHolder : RoundData
 {
 
     private void Start()
@@ -10,6 +10,6 @@ public class CharacterHolder : CharacterList
 
     private void CreateModel()
     {
-        Instantiate(_character[CharacterSelection.SelectionCharacter].Model, transform.position + new Vector3(0, -1 , 0), transform.rotation, this.transform);
+        Instantiate(_character[SelectionCharacter].Model, transform.position + new Vector3(0, -1 , 0), transform.rotation, this.transform);
     }
 }

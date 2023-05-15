@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FoodHandler : MonoBehaviour
 {
-    //public static Action onFoodEaten;
     public FoodGeneratorHandler FoodGenerator;
 
     private void Start()
@@ -14,8 +13,8 @@ public class FoodHandler : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Creature")
         {
-            //onFoodEaten?.Invoke();
             if (FoodGenerator) FoodGenerator.FoodDestroy();
+
             Destroy(gameObject);
         }
     }

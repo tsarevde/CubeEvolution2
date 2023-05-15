@@ -2,10 +2,9 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody))]
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovement : RoundData
 {
-    [SerializeField] private StatusBarCharacter _statusBar;
-    [SerializeField] private float _moveSpeed = 3;
+    [SerializeField] public StatusBarCharacter StatusBar;
     [SerializeField]  private float _rotateSpeed = 0.35f;
     private Rigidbody _rigidbody;
 
@@ -16,10 +15,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void MoveCharacter(Vector3 moveDirection)
     {
-        Vector3 offset = moveDirection * _moveSpeed * Time.deltaTime;
+        Vector3 offset = moveDirection * _character[SelectionCharacter].Speed * Time.deltaTime;
         _rigidbody.MovePosition(_rigidbody.position + offset);
 
-        _statusBar.SetPosition(transform.position);
+        StatusBar.SetPosition(transform.position);
     }
 
     public void RotateCharacter(Vector3 moveDirection) 

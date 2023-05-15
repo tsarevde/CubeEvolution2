@@ -3522,6 +3522,7 @@ GameObject:
   - component: {fileID: 1274427863}
   - component: {fileID: 1274427868}
   - component: {fileID: 1274427867}
+  - component: {fileID: 1274427869}
   m_Layer: 5
   m_Name: Cube
   m_TagString: Untagged
@@ -3599,6 +3600,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 20
   rb: {fileID: 0}
+--- !u!114 &1274427869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274427861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba840efb716bbaa4fadb4ba6f387b2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1291067080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5899,6 +5912,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eac70313efa8c840b41158420d05d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CubeExp: {fileID: 0}
+  TextCubeExp: {fileID: 0}
+  TextCubeLevel: {fileID: 0}
   _statsMax:
   - {fileID: 1815762180}
   - {fileID: 1724200399}
@@ -5907,6 +5923,9 @@ MonoBehaviour:
   - {fileID: 1625633335}
   - {fileID: 366161925}
   - {fileID: 1576391192}
+  _maxUpgradeHealth: 2000
+  _maxUpgradeDamage: 500
+  _maxUpgradeSpeed: 10
 --- !u!114 &1980038567
 MonoBehaviour:
   m_ObjectHideFlags: 0
