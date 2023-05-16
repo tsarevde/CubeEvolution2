@@ -22,6 +22,7 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
     private void Start()
     {
         RoundStarter.onRoundStart += EnableJoystick;
+        RoundEnd.onRoundEnd += DisableJoystick;
 
         ClickEffect();
         VisableEffect();
@@ -32,11 +33,18 @@ public class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler,
     private void OnDisable()
     {
         RoundStarter.onRoundStart -= EnableJoystick;
+        RoundEnd.onRoundEnd += DisableJoystick;
     }
 
     private void EnableJoystick()
     {
         isEnable = true;
+        VisableEffect();
+    }
+
+    private void DisableJoystick()
+    {
+        isEnable = false;
         VisableEffect();
     }
 

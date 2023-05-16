@@ -61,27 +61,27 @@ public class StatusBarCharacter : CharacterSelection
             }
             case 2:
             {
-                _foodTexture.color = Color.green;
+                _foodTexture.color = new Color32(72, 222, 54, 255);
                 break;
             }
             case 3:
             {
-                _foodTexture.color = Color.blue;
+                _foodTexture.color = new Color32(32, 206, 255, 255);
                 break;
             }
             case 4:
             {
-                _foodTexture.color = Color.yellow;
+                _foodTexture.color = new Color32(255, 192, 23, 255);
                 break;
             }
             case 5:
             {
-                _foodTexture.color = Color.red;
+                _foodTexture.color = new Color32(221, 50, 44, 255);
                 break;
             }
             case 6:
             {
-                _foodTexture.color = Color.magenta;
+                _foodTexture.color = new Color32(225, 96, 248, 255);
                 break;
             }
         }

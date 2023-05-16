@@ -9,6 +9,7 @@ public class RoundData : CharacterSelection
     public static Action<int> onFoodTake;
     private static int _priorityFood;
     public int FoodAmount {get; private set;} = 0;
+    [SerializeField] private RoundEnd _roundEnd;
 
     public void Start()
     {
@@ -22,6 +23,18 @@ public class RoundData : CharacterSelection
         {
             FoodAmount++;
             onFoodTake?.Invoke(FoodAmount);
+        }
+
+        if (FoodAmount >= 2)
+        {
+            Debug.Log("Win");
+            _roundEnd.WinRound();
+        }
+
+        if (foodID == 1)
+        {
+            Debug.Log("Lose");
+            _roundEnd.LoseRound();
         }
     }
 }

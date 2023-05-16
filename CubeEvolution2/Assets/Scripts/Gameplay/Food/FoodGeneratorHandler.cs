@@ -19,7 +19,7 @@ public class FoodGeneratorHandler : FoodGeneratorList
 
     private void StartSpawner()
     {
-         StartCoroutine(Spawner());
+        StartCoroutine(Spawner());
     }
 
     private IEnumerator Spawner()
