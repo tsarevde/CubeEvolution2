@@ -3,6 +3,7 @@ using UnityEngine;
 public class FoodHandler : MonoBehaviour
 {
     public FoodGeneratorHandler FoodGenerator;
+    public int ID;
 
     private void Start()
     {
@@ -11,10 +12,11 @@ public class FoodHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Creature")
+        if (other.gameObject.tag == "Player")
         {
             if (FoodGenerator) FoodGenerator.FoodDestroy();
-
+            
+            other.gameObject.GetComponent<RoundData>().TakeFood(ID);
             Destroy(gameObject);
         }
     }

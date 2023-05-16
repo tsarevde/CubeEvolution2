@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foodModel: {fileID: 8709568403052277407, guid: 5251f4fcee57be14eafddb3a3692e974,
     type: 3}
-  _foodPoint: 4
-  _foodID: 0
+  _foodPoint: 1
+  _foodID: 4

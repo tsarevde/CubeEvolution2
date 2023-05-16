@@ -9,6 +9,12 @@ public class PriorityFoodTextUI : MonoBehaviour
         _PriorityFoodText = GetComponent<TextMeshProUGUI>();
         RoundData.onGetPriorityFood += SetTextPriorityFood;
     }
+
+    private void OnDisable()
+    {
+        RoundData.onGetPriorityFood -= SetTextPriorityFood;
+    }
+
     private void SetTextPriorityFood(int number)
     {
         switch (number)

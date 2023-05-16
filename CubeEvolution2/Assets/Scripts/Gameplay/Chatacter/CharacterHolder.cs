@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterHolder : RoundData
+public class CharacterHolder : CharacterSelection
 {
 
     private void Start()

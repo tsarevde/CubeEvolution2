@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public class CharacterAttack : RoundData
+public class CharacterAttack : CharacterSelection
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _shootPoint;

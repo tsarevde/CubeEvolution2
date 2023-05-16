@@ -15,3 +15,4 @@ MonoBehaviour:
   _foodModel: {fileID: 5578844297158879239, guid: 9c027fd222789204897ef9596a3c770d,
     type: 3}
   _foodPoint: 1
+  _foodID: 1

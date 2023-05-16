@@ -37,6 +37,8 @@ public class FoodGeneratorHandler : FoodGeneratorList
         {
             GameObject food = Instantiate(_foodGenerator[FoodGeneratorNumber].Food.FoodModel, transform.position + new Vector3(0, 0.375f, 0), transform.rotation);
             food.GetComponent<FoodHandler>().FoodGenerator = this;
+            food.GetComponent<FoodHandler>().ID = _foodGenerator[FoodGeneratorNumber].Food.FoodID;
+            
             currentAmountFood++;
         }
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody))]
-public class CharacterMovement : RoundData
+public class CharacterMovement : CharacterSelection
 {
     [SerializeField] public StatusBarCharacter StatusBar;
     [SerializeField]  private float _rotateSpeed = 0.35f;

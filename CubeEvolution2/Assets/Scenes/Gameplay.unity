@@ -1264,7 +1264,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521418593}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000004470349}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.55946684, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1449,7 +1449,9 @@ MonoBehaviour:
   _healthText: {fileID: 775730447}
   _currentHealth: 0
   _currentReloading: 0
-  data: {fileID: 835876554}
+  _foodTexture: {fileID: 521418595}
+  _foodAmount: {fileID: 911187470}
+  _foodColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &775730445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d101458f6656e84484093e5394ceb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PriorityFood: 0
   StatusBar: {fileID: 692222461}
   _rotateSpeed: 0.35
 --- !u!114 &835876555
@@ -1812,7 +1813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cee667c35bb9e46afdce9f1c789052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PriorityFood: 0
 --- !u!65 &835876556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1854,7 +1854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a80fb4a846abd644860da889ebf27d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PriorityFood: 0
   _bullet: {fileID: 463539497647006654, guid: 6351dc9e275b25a47a01c4198ecc07d5, type: 3}
   _shootPoint: {fileID: 1055807186}
   _point: {fileID: 1969987402}
@@ -1871,7 +1870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e8c8d701126d740b0ed7bc5f3d61e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PriorityFood: 0
 --- !u!1001 &853373663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2301,7 +2299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49eaea804f8df404280f3a7f02764cce, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 498ea2750df87a94589304096aadec85, type: 2}
