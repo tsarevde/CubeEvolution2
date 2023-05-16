@@ -9,10 +9,20 @@ public class FoodGeneratorHandler : FoodGeneratorList
 
     private void Start()
     {
-        StartCoroutine(Spawner());
+        RoundStarter.onRoundStart += StartSpawner;
     }
 
-    IEnumerator Spawner()
+    private void OnDisable()
+    {
+        RoundStarter.onRoundStart -= StartSpawner;
+    }
+
+    private void StartSpawner()
+    {
+         StartCoroutine(Spawner());
+    }
+
+    private IEnumerator Spawner()
     {
         while (true)
         {

@@ -1,14 +1,18 @@
-using UnityEngine;
+using System;
 
 public class RoundData : CharacterSelection
 {
-    void Start()
+    public static Action<int> onGetPriorityFood;
+    public int PriorityFood = 0;
+
+    private void Start()
     {
-        
+        GetPriorityFood();
     }
 
-    void Update()
+    private void GetPriorityFood()
     {
-        
+        PriorityFood = SetPriorityFood.GetPriorityFood();
+        onGetPriorityFood?.Invoke(PriorityFood);
     }
 }

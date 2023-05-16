@@ -10,7 +10,17 @@ public class RoundTimer : MonoBehaviour
     [SerializeField] private int minutes = 0;
     [SerializeField] private TextMeshProUGUI textTimer;
 
-    void Start()
+    private void Start()
+    {
+        RoundStarter.onRoundStart += StartTimer;
+    }
+
+    private void OnDisable()
+    {
+        RoundStarter.onRoundStart -= StartTimer;
+    }
+
+    private void StartTimer()
     {
         StartCoroutine(Timer());
     }

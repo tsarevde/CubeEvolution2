@@ -10,4 +10,6 @@ public class Food : ScriptableObject
     [Header("Food Stats")]
     [SerializeField] private float _foodPoint;
     public float FoodPoint { get => _foodPoint; }
+    [SerializeField] private int _foodID;
+    public int FoodID { get => _foodID; }
 }
