@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterSpawn : CharacterSelection
 {
     public static Action onChangedCharacter;
+    [SerializeField] private Transform _spawnPosition;
     
     private void Start()
     {
@@ -24,12 +25,12 @@ public class CharacterSpawn : CharacterSelection
 
     private void SpawnCharacter()
     {
-        Instantiate(_character[SelectionCharacter].Model, transform.position, transform.rotation, transform);
+        Instantiate(_character[SelectionCharacter].Model, _spawnPosition.position, _spawnPosition.rotation, _spawnPosition);
         onChangedCharacter?.Invoke();
     }
 
     private void DestroyCharacter()
     {
-        Destroy(transform.GetChild(0).gameObject);
+        Destroy(_spawnPosition.GetChild(0).gameObject);
     }
 }

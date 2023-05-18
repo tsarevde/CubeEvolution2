@@ -19,7 +19,7 @@ public class Character : ScriptableObject
     public int UnlockLevel { get => _unlockLevel; }
     public int UnlockPrice { get => _unlockPrice; }
 
-    [Header("Character Stats")]
+    [Header("Character Skills")]
     [SerializeField] private float _health;
     [SerializeField] private float _damage;
     [SerializeField] private float _speed;
@@ -50,4 +50,16 @@ public class Character : ScriptableObject
     public int MaxLevel { get => _maxLevel; }
     public int CurrentExp { get => _currentExp; set => _currentExp = value;}
     public int EnoughtExp { get => _enoughtExp; set => _enoughtExp = value;}
+
+    [Header("Character Statistics")]
+    public int StatisticsPlayed = 0;
+    public int StatisticsVictories = 0;
+    public int StatisticsLosses = 0;
+    public int StatisticsKilled = 0;
+    public int StatisticsDeaths = 0;
+    public int StatisticsMaxKilled = 0;
+    public int StatisticsBonuses = 0;
+    public int StatisticsDamage = 0;
+    public int StatisticsRegeneration = 0;
+    public int StatisticsEaten = 0;
 }

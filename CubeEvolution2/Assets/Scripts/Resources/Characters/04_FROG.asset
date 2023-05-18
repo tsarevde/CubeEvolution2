@@ -25,8 +25,20 @@ MonoBehaviour:
   _damageMax: 500
   _speedMax: 10
   Reloading: 3
+  AttackDistance: 10
   BulletAmount: 4
+  BulletSpeed: 8
   _currentLevel: 1
   _maxLevel: 10
   _currentExp: 3
   _enoughtExp: 5
+  StatisticsPlayed: 85
+  StatisticsVictories: 0
+  StatisticsLosses: 0
+  StatisticsKilled: 0
+  StatisticsDeaths: 2
+  StatisticsMaxKilled: 0
+  StatisticsBonuses: 0
+  StatisticsDamage: 0
+  StatisticsRegeneration: 0
+  StatisticsEaten: 0
