@@ -30,9 +30,9 @@ MonoBehaviour:
   BulletSpeed: 8
   _currentLevel: 1
   _maxLevel: 10
-  _currentExp: 1
+  _currentExp: 3
   _enoughtExp: 5
-  StatisticsPlayed: 1
+  StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0
   StatisticsKilled: 0

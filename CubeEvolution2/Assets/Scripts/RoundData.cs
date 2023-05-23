@@ -27,13 +27,11 @@ public class RoundData : CharacterSelection
 
         if (FoodAmount >= 2)
         {
-            Debug.Log("Win");
             _roundEnd.WinRound();
         }
 
         if (foodID == 1)
         {
-            Debug.Log("Lose");
             _roundEnd.LoseRound();
         }
     }

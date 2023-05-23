@@ -8,8 +8,8 @@ public class RoundEnd : MonoBehaviour
 {
     public static Action onRoundEnd;
 
-    [SerializeField] private Image _background; //Фон
-    [SerializeField] private TextMeshProUGUI _statusText; //Выиграл/Проиграл
+    [SerializeField] private Image _background;
+    [SerializeField] private TextMeshProUGUI _statusText;
     [SerializeField] private TextMeshProUGUI _statusInfoText;
     [SerializeField] private TextMeshProUGUI _expText;
     [SerializeField] private TextMeshProUGUI _moneyText;
@@ -29,26 +29,26 @@ public class RoundEnd : MonoBehaviour
     {
         gameObject.SetActive(true);
 
+        _background.color = new Color32(74, 190, 255, 224);
+        _statusText.SetText("YOU HAVE WON");
+        _statusInfoText.SetText("FOR WINNING THE GAME");
+
         onRoundEnd?.Invoke();
 
         CheckTextStatus();
-
-        _background.color = new Color32(74, 190, 255, 224);
-        _statusText.SetText("ВЫ ВЫИГРАЛИ");
-        _statusInfoText.SetText("ЗА ПОБЕДУ В ИГРЕ");
     }
 
     public void LoseRound()
     {
         gameObject.SetActive(true);
         
+        _background.color = new Color32(255, 74, 74, 224);
+        _statusText.SetText("YOU'VE LOST");
+        _statusInfoText.SetText("FOR PARTICIPATING IN THE GAME");
+
         onRoundEnd?.Invoke();
 
         CheckTextStatus();
-
-        _background.color = new Color32(255, 74, 74, 224);
-        _statusText.SetText("ВЫ ПРОИГРАЛИ");
-        _statusInfoText.SetText("ЗА УЧАСТИЕ В ИГРЕ");
     }
 
     private void CheckTextStatus()
@@ -76,7 +76,6 @@ public class RoundEnd : MonoBehaviour
 
         while (needAmount > curretAmount)
         {
-            Debug.Log("UpdaterTextBonus");
             curentText.SetText($"+{curretAmount} {currency}");
 
             curretAmount += addAmount;

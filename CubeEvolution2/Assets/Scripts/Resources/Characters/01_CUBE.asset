@@ -32,7 +32,7 @@ MonoBehaviour:
   _maxLevel: 10
   _currentExp: 0
   _enoughtExp: 5
-  StatisticsPlayed: 32
+  StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0
   StatisticsKilled: 0

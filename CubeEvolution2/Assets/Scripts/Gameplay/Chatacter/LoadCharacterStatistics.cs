@@ -6,17 +6,10 @@ public class LoadCharacterStatistics : CharacterSelection
 {
     [SerializeField] private List<TextMeshProUGUI> _textStatistics;
 
-    private void Start()
+    private void OnEnable()
     {
-        CharacterSpawn.onChangedCharacter += SetData;
         SetData();
     }
-
-    private void OnDisable()
-    {
-        CharacterSpawn.onChangedCharacter -= SetData;
-    }
-
 
     public void SetData()
     {

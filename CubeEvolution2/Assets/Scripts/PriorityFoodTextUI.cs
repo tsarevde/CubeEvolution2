@@ -21,32 +21,32 @@ public class PriorityFoodTextUI : MonoBehaviour
         {
             case 1:
             {
-                _PriorityFoodText.SetText("БЕЛЫЕ");
+                _PriorityFoodText.SetText("WHITE");
                 break;
             }
             case 2:
             {
-                _PriorityFoodText.SetText("ЗЕЛЕНЫЕ");
+                _PriorityFoodText.SetText("GREEN");
                 break;
             }
             case 3:
             {
-                _PriorityFoodText.SetText("СИНИЕ");
+                _PriorityFoodText.SetText("BLUE");
                 break;
             }
             case 4:
             {
-                _PriorityFoodText.SetText("ЖЕЛТЫЕ");
+                _PriorityFoodText.SetText("YELLOW");
                 break;
             }
             case 5:
             {
-                _PriorityFoodText.SetText("КРАСНЫЕ");
+                _PriorityFoodText.SetText("RED");
                 break;
             }
             case 6:
             {
-                _PriorityFoodText.SetText("ФИОЛЕТОВЫЕ");
+                _PriorityFoodText.SetText("MAGENTA");
                 break;
             }
         }

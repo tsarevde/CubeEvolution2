@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -6,6 +7,8 @@ public class TabsList : MonoBehaviour
     [SerializeField] private List<TabButton> _tabButtons;
     [SerializeField] private Sprite _staticImage;
     [SerializeField] private Sprite _activeImage;
+    public static Action onEnableBlock;
+    public static Action onDisableBlock;
 
     [Header("Tabs")]
     [SerializeField] private List<GameObject> _tabs;
@@ -37,7 +40,13 @@ public class TabsList : MonoBehaviour
         int index = button.transform.GetSiblingIndex();
         for (int i = 0; i < _tabs.Count; i++)
         {
-            if (i == index) _tabs[i].SetActive(true);
+            if (i == index)
+            {
+                _tabs[i].SetActive(true);
+                
+                if (i != 0) onEnableBlock?.Invoke();
+                else onDisableBlock?.Invoke();
+            }
             else _tabs[i].SetActive(false);
         }
         

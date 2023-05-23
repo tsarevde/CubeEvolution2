@@ -1,14 +1,13 @@
 using UnityEngine;
 using TMPro;
 
-public class CharacterInfoUI : CharacterSelection
+public class CharacterDescriptionUI : CharacterSelection
 {
-    // Отображение Названия, Описания персонажа в UI
-    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _desriptionText;
 
-    private void Start()
+    private void OnEnable()
     {
+        if (!_desriptionText)  _desriptionText = GetComponent<TextMeshProUGUI>();
         CharacterSpawn.onChangedCharacter += UpdateText;
         UpdateText();
     }
@@ -20,7 +19,6 @@ public class CharacterInfoUI : CharacterSelection
 
     private void UpdateText()
     {
-        _nameText.SetText(_character[SelectionCharacter].Name.ToString());
         _desriptionText.SetText(_character[SelectionCharacter].Description.ToString());
     }
 }

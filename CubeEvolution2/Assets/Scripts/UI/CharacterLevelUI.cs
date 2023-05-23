@@ -2,36 +2,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CharacterLevelUI : CharacterLevel
+public class CharacterLevelUI : CharacterSelection
 {
     // Отображение уровня игрока в UI
-    [SerializeField] private Image CubeExp;
-    [SerializeField] private TextMeshProUGUI TextCubeExp;
-    [SerializeField] private TextMeshProUGUI TextCubeLevel;
+    [SerializeField] private Image _cubeExp;
+    [SerializeField] private TextMeshProUGUI _textCubeExp;
+    [SerializeField] private TextMeshProUGUI _textCubeLevel;
 
-    private void Start()
+    private void OnEnable()
     {
         CharacterSpawn.onChangedCharacter += UpdateLevelText;
-        onExpChanged += UpdateLevelText;
+        CharacterLevel.onExpChanged += UpdateLevelText;
+        
         UpdateLevelText();
     }
 
     private void OnDisable()
     {
         CharacterSpawn.onChangedCharacter -= UpdateLevelText;
-        onExpChanged -= UpdateLevelText;
+        CharacterLevel.onExpChanged -= UpdateLevelText;
     }
 
     private void SetProgressFill ()
     {
-        CubeExp.fillAmount = Mathf.InverseLerp(0f, _character[SelectionCharacter].EnoughtExp, _character[SelectionCharacter].CurrentExp);
+        _cubeExp.fillAmount = Mathf.InverseLerp(0f, _character[SelectionCharacter].EnoughtExp, _character[SelectionCharacter].CurrentExp);
     }
 
     private void UpdateLevelText()
     {
-
-        TextCubeLevel.SetText(_character[SelectionCharacter].CurrentLevel.ToString());
-        TextCubeExp.SetText($"{_character[SelectionCharacter].CurrentExp}/{_character[SelectionCharacter].EnoughtExp}");
+        _textCubeLevel.SetText(_character[SelectionCharacter].CurrentLevel.ToString());
+        _textCubeExp.SetText($"{_character[SelectionCharacter].CurrentExp}/{_character[SelectionCharacter].EnoughtExp}");
 
         SetProgressFill();
     }

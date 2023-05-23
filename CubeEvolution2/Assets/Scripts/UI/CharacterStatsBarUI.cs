@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStatsBarUI : CharacterLevelUI
+public class CharacterStatsBarUI : CharacterSelection
 {
     // Отображение прогресс бара статистик(здоровье, урон, скорость) персонажа в UI
     [SerializeField] private Image[] _statsMax;
@@ -12,7 +12,7 @@ public class CharacterStatsBarUI : CharacterLevelUI
     [SerializeField] private int _maxUpgradeDamage = 500;
     [SerializeField] private int _maxUpgradeSpeed = 10;
 
-    private void Start()
+    private void OnEnable()
     {
         CharacterSpawn.onChangedCharacter += SetProgressFill;
         SetProgressFill();

@@ -6,7 +6,7 @@ public class CharacterStatsUI : CharacterSelection
     // Отображение статистик(здоровье, урон, скорость) персонажа в UI
     [SerializeField] private TextMeshProUGUI[] _amountText;
 
-    private void Start()
+    private void OnEnable()
     {
         CharacterSpawn.onChangedCharacter += UpdateText;
         UpdateText();
