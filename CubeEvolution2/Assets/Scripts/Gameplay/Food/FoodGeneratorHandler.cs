@@ -10,6 +10,7 @@ public class FoodGeneratorHandler : FoodGeneratorList
     private void Start()
     {
         RoundStarter.onRoundStart += StartSpawner;
+        StartCoroutine(Spawner());
     }
 
     private void OnDisable()

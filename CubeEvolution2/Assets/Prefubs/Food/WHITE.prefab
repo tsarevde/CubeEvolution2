@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6226074673223460562}
   m_Layer: 0
   m_Name: WHITE
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodGenerator: {fileID: 0}
+  ID: 0

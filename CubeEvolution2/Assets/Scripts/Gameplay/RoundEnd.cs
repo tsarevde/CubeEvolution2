@@ -7,6 +7,9 @@ using TMPro;
 public class RoundEnd : MonoBehaviour
 {
     public static Action onRoundEnd;
+    public static Action onVictory;
+    public static Action onLoss;
+    public static Action<int> onKilledAmount;
 
     [SerializeField] private Image _background;
     [SerializeField] private TextMeshProUGUI _statusText;
@@ -15,6 +18,7 @@ public class RoundEnd : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _moneyText;
 
     [SerializeField] private GameObject _fadeIn;
+    [SerializeField] private RoundData _roundData;
 
     [SerializeField] private int _exp;
     [SerializeField] private int _money;
@@ -34,6 +38,7 @@ public class RoundEnd : MonoBehaviour
         _statusInfoText.SetText("FOR WINNING THE GAME");
 
         onRoundEnd?.Invoke();
+        onVictory?.Invoke();
 
         CheckTextStatus();
     }
@@ -47,9 +52,12 @@ public class RoundEnd : MonoBehaviour
         _statusInfoText.SetText("FOR PARTICIPATING IN THE GAME");
 
         onRoundEnd?.Invoke();
+        onLoss?.Invoke();
 
         CheckTextStatus();
     }
+
+
 
     private void CheckTextStatus()
     {

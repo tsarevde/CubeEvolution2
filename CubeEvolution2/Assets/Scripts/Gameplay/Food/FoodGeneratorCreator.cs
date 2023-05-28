@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FoodGeneratorCreator : FoodGeneratorList
 {   
@@ -9,10 +10,7 @@ public class FoodGeneratorCreator : FoodGeneratorList
 
     void Start()
     {
-        generatorAmount = _foodGenerator.Length;
-        lastCoordinates = new int [generatorAmount];
-
-        CreateGenerator();
+        StartCoroutine(RegenerationMap());
     }
 
     private void CreateGenerator()
@@ -48,5 +46,32 @@ public class FoodGeneratorCreator : FoodGeneratorList
         generator.GetComponent<FoodGeneratorHandler>().FoodGeneratorNumber = index;
 
         index++;
+    }
+
+    void CreateMap()
+    {
+        generatorAmount = _foodGenerator.Length;
+        lastCoordinates = new int [generatorAmount];
+        index = 0;
+
+        CreateGenerator();
+    }
+
+    void RemoveMap()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
+
+    private IEnumerator RegenerationMap()
+    {
+        while (true)
+        {
+            CreateMap();
+            yield return new WaitForSeconds(300f);
+            RemoveMap();
+        }
     }
 }

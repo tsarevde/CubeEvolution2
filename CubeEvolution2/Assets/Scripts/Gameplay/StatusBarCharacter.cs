@@ -8,6 +8,7 @@ public class StatusBarCharacter : CharacterSelection
     [SerializeField] private Image _reloadingBar;
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private float _currentHealth;
+    [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentReloading;
     
     [SerializeField] private Image _foodTexture;
@@ -23,9 +24,14 @@ public class StatusBarCharacter : CharacterSelection
     {
         CharacterAttack.onReloadingAmmo += ReloadingBar;
         RoundData.onGetPriorityFood += SetFoodColor;
-        RoundData.onFoodTake += FoodInfoUpdate;
+        RoundData.onFoodAmount += FoodInfoUpdate;
+
+        CharacterHealth.onTakeDamage += ChangeHealth;
+        CharacterHealth.onChangeHealth += ChangeHealth;
+        CharacterHealth.onChangeMaxHealth += ChangeMaxHealth;
         
-        _currentHealth = _character[CharacterSelection.SelectionCharacter].Health;
+        _maxHealth = _character[CharacterSelection.SelectionCharacter].Health;
+        _currentHealth = _maxHealth;
         
         UpdateHealthBar();
         ReloadingBar(_character[CharacterSelection.SelectionCharacter].Reloading);
@@ -34,15 +40,30 @@ public class StatusBarCharacter : CharacterSelection
     private void OnDisable()
     {
         CharacterAttack.onReloadingAmmo -= ReloadingBar;
-        RoundData.onFoodTake -=FoodInfoUpdate;
+        RoundData.onFoodAmount -=FoodInfoUpdate;
         RoundData.onGetPriorityFood -= SetFoodColor;
+
+        CharacterHealth.onTakeDamage -= ChangeHealth;
+        CharacterHealth.onChangeHealth -= ChangeHealth;
+        CharacterHealth.onChangeMaxHealth -= ChangeMaxHealth;
     }
 
     private void UpdateHealthBar()
     {
-        _healthBar.fillAmount = Mathf.InverseLerp(0f, _character[CharacterSelection.SelectionCharacter].Health, _currentHealth);
+        _healthBar.fillAmount = Mathf.InverseLerp(0f, _maxHealth, _currentHealth);
 
         _healthText.SetText(_currentHealth.ToString());
+    }
+    private void ChangeHealth(int currentHealth)
+    {
+        _currentHealth = currentHealth;
+        UpdateHealthBar();
+    }
+
+    private void ChangeMaxHealth(int maxHealth)
+    {
+        _maxHealth = maxHealth;
+        UpdateHealthBar();
     }
 
     private void ReloadingBar(float currentTime)

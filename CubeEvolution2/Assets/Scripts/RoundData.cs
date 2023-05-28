@@ -4,17 +4,28 @@ using Random = UnityEngine.Random;
 
 public class RoundData : CharacterSelection
 {
-    public int CreatureAmount {get; private set;} = 1;
     public static Action<int> onGetPriorityFood;
-    public static Action<int> onFoodTake;
+    public static Action<int> onFoodAmount;
+    public static Action onFoodTake;
+
+    public int CreatureAmount {get; private set;} = 1;
     private static int _priorityFood;
     public int FoodAmount {get; private set;} = 0;
+    public int KillsAmount = 0;
     [SerializeField] private RoundEnd _roundEnd;
 
     public void Start()
     {
+        KillsAmount = 0;
         _priorityFood = Random.Range(1, 6);
         onGetPriorityFood?.Invoke(_priorityFood);
+
+        CreatureHandler.onKilled += CreatureKilled;
+    }
+
+    private void OnDisable()
+    {
+        CreatureHandler.onKilled -= CreatureKilled;
     }
 
     public void TakeFood(int foodID)
@@ -22,17 +33,18 @@ public class RoundData : CharacterSelection
         if (foodID == _priorityFood)
         {
             FoodAmount++;
-            onFoodTake?.Invoke(FoodAmount);
+            onFoodAmount?.Invoke(FoodAmount);
+            onFoodTake?.Invoke();
         }
 
-        if (FoodAmount >= 2)
+        if (FoodAmount >= 5)
         {
             _roundEnd.WinRound();
         }
+    }
 
-        if (foodID == 1)
-        {
-            _roundEnd.LoseRound();
-        }
+    private void CreatureKilled()
+    {
+        KillsAmount++;
     }
 }

@@ -1,0 +1,65 @@
+{
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.1+cu110"
+    },
+    "FirstType": {
+        "checkpoints": [
+            {
+                "steps": 4249979,
+                "file_path": "results\\Test\\FirstType\\FirstType-4249979.onnx",
+                "reward": null,
+                "creation_time": 1684933009.057308,
+                "auxillary_file_paths": [
+                    "results\\Test\\FirstType\\FirstType-4249979.pt"
+                ]
+            },
+            {
+                "steps": 4499936,
+                "file_path": "results\\Test\\FirstType\\FirstType-4499936.onnx",
+                "reward": 1.5852441454513206,
+                "creation_time": 1684933765.2020326,
+                "auxillary_file_paths": [
+                    "results\\Test\\FirstType\\FirstType-4499936.pt"
+                ]
+            },
+            {
+                "steps": 4749972,
+                "file_path": "results\\Test\\FirstType\\FirstType-4749972.onnx",
+                "reward": -0.0652006406869207,
+                "creation_time": 1684934523.4931722,
+                "auxillary_file_paths": [
+                    "results\\Test\\FirstType\\FirstType-4749972.pt"
+                ]
+            },
+            {
+                "steps": 4999943,
+                "file_path": "results\\Test\\FirstType\\FirstType-4999943.onnx",
+                "reward": -5.1994000505656,
+                "creation_time": 1684935280.5161805,
+                "auxillary_file_paths": [
+                    "results\\Test\\FirstType\\FirstType-4999943.pt"
+                ]
+            },
+            {
+                "steps": 5000007,
+                "file_path": "results\\Test\\FirstType\\FirstType-5000007.onnx",
+                "reward": -5.1994000505656,
+                "creation_time": 1684935280.563277,
+                "auxillary_file_paths": [
+                    "results\\Test\\FirstType\\FirstType-5000007.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000007,
+            "file_path": "results\\Test\\FirstType.onnx",
+            "reward": -5.1994000505656,
+            "creation_time": 1684935280.563277,
+            "auxillary_file_paths": [
+                "results\\Test\\FirstType\\FirstType-5000007.pt"
+            ]
+        }
+    }
+}

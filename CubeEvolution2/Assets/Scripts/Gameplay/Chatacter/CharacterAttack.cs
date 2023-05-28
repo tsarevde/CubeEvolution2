@@ -8,9 +8,30 @@ public class CharacterAttack : CharacterSelection
     [SerializeField] private GameObject _shootPoint;
     [SerializeField] private GameObject _point;
 
+    [SerializeField] private int _startDamage;
+    [SerializeField] private int _currentDamage;
+
     [SerializeField] public GameObject ShootLine;
     private bool _isHaveAmmo = true;
     public static Action<float> onReloadingAmmo;
+
+    private void Start()
+    {
+        _startDamage = _character[SelectionCharacter].Damage;
+        _currentDamage = _startDamage;
+
+        RoundData.onFoodTake += AddDamage;
+    }
+
+    private void OnDisable()
+    {
+        RoundData.onFoodTake -= AddDamage;
+    }
+
+    private void AddDamage()
+    {
+        _currentDamage += (int)(_startDamage * .1f);
+    }
 
     public void SetAttackDirection(Vector3 direction)
     {
@@ -55,6 +76,12 @@ public class CharacterAttack : CharacterSelection
         for (int i = 0; i < _character[SelectionCharacter].BulletAmount; i++)
         {
             GameObject bullet = Instantiate(_bullet, _point.transform.position, _point.transform.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            
+            bulletScript.Damage = _currentDamage;
+            bulletScript.Speed = _character[SelectionCharacter].BulletSpeed;
+            bulletScript.Distance = _character[SelectionCharacter].AttackDistance;
+
             yield return new WaitForSeconds(.2f);
         }
 
@@ -69,8 +96,8 @@ public class CharacterAttack : CharacterSelection
         {
             onReloadingAmmo?.Invoke(second);
 
-            second += .1f;
-            yield return new WaitForSeconds(.1f);
+            second += .05f;
+            yield return new WaitForSeconds(.05f);
         }
 
         _isHaveAmmo = true;

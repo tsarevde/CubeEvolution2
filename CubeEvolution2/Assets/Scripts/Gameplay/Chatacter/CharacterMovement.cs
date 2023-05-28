@@ -6,19 +6,19 @@ public class CharacterMovement : CharacterSelection
 {
     [SerializeField] public StatusBarCharacter StatusBar;
     [SerializeField]  private float _rotateSpeed = 0.35f;
-    private Rigidbody _rigidbody;
+    private Rigidbody _rigidBody;
     private bool isStop = false;
 
     private void Start()
     {
         isStop = false;
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidBody = GetComponent<Rigidbody>();
         RoundEnd.onRoundEnd += StopCharacter;
     }
 
     private void OnDisable()
     {
-        RoundEnd.onRoundEnd += StopCharacter;
+        RoundEnd.onRoundEnd -= StopCharacter;
     }
 
     public void MoveCharacter(Vector3 moveDirection)
@@ -26,7 +26,7 @@ public class CharacterMovement : CharacterSelection
         if (isStop) return;
 
         Vector3 offset = moveDirection * _character[SelectionCharacter].Speed * Time.deltaTime;
-        _rigidbody.MovePosition(_rigidbody.position + offset);
+        _rigidBody.MovePosition(_rigidBody.position + offset);
 
         StatusBar.SetPosition(transform.position);
     }
