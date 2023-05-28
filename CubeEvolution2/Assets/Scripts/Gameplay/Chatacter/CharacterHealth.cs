@@ -28,6 +28,8 @@ public class CharacterHealth : CharacterSelection
         _currentHealth = _maxHealth;
 
         _noFightTime = _noFightTimeSecond;
+
+        StartCoroutine(InDeathZone());
     }
 
     private void OnDisable()
@@ -47,7 +49,20 @@ public class CharacterHealth : CharacterSelection
 
             StartCoroutine(InFightTimer());
         }
+    }
 
+    private void TakeDamage(int damageValue)
+    {
+        if (_currentHealth - damageValue <= 0) _roundEnd.LoseRound();
+        else 
+        {
+            _inFight = true;
+            
+            _currentHealth -= damageValue;
+            onTakeDamage?.Invoke(_currentHealth);
+
+            StartCoroutine(InFightTimer());
+        }
     }
 
     private void TakeHealth(int healthValue)
@@ -95,6 +110,17 @@ public class CharacterHealth : CharacterSelection
 
         _inFight = false;
         StartCoroutine(Regeneration());
+    }
+
+    private IEnumerator InDeathZone()
+    {
+        while (true)
+        {
+            if (DeathZone.isOutsideCircleStatic(transform.position))
+                TakeDamage((int)DeathZone.Damage);
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private void OnCollisionEnter(Collision other)

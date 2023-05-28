@@ -70,7 +70,7 @@ public class FoodGeneratorCreator : FoodGeneratorList
         while (true)
         {
             CreateMap();
-            yield return new WaitForSeconds(300f);
+            yield return new WaitForSeconds(30f);
             RemoveMap();
         }
     }

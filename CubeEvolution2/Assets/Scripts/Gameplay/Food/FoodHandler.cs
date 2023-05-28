@@ -32,7 +32,7 @@ public class FoodHandler : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(300f);
+            yield return new WaitForSeconds(30f);
             Destroy(gameObject);
         }
     }
