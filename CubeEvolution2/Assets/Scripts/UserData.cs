@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class UserData : MonoBehaviour
+public static class UserData
 {
     public static int money {get; private set;}
     public static int donate {get; private set;}
@@ -8,12 +6,23 @@ public class UserData : MonoBehaviour
     public static int currentExp {get; private set;}
     public static int enoughtExp {get; private set;}
 
-    private void Awake() 
+    public static void AddMoney(int amount)
     {
-        money = 82;
-        donate = 55;
-        level = 1;
-        currentExp = 1;
-        enoughtExp = 5;
+        if (amount >= 1) money += amount;
+    }
+
+    public static void AddDonate(int amount)
+    {
+        if (amount >= 1) donate += amount;
+    }
+    
+    public static void TakeMoney(int amount)
+    {
+        if (money >= amount) money -= amount;
+    }
+
+    public static void TakeDonate(int amount)
+    {
+        if (donate >= amount) donate -= amount;
     }
 }

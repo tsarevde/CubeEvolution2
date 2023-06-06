@@ -51,6 +51,7 @@ public class Character : ScriptableObject
     public int CurrentExp { get => _currentExp; set => _currentExp = value;}
     public int EnoughtExp { get => _enoughtExp; set => _enoughtExp = value;}
 
+
     [Header("Character Statistics")]
     public int StatisticsPlayed = 0;
     public int StatisticsVictories = 0;

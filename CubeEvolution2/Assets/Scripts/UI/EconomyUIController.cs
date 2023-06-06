@@ -6,7 +6,7 @@ public class EconomyUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TextMoney;
     [SerializeField] private TextMeshProUGUI TextDonate;
 
-    void Start()
+    void Update()
     {
         TextUpdateMoney();
         TextUpdateDonate();

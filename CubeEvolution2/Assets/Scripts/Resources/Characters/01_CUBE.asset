@@ -28,17 +28,17 @@ MonoBehaviour:
   AttackDistance: 10
   BulletAmount: 1
   BulletSpeed: 8
-  _currentLevel: 1
+  _currentLevel: 20
   _maxLevel: 10
   _currentExp: 0
   _enoughtExp: 5
-  StatisticsPlayed: 0
-  StatisticsVictories: 0
+  StatisticsPlayed: 1
+  StatisticsVictories: 1
   StatisticsLosses: 0
-  StatisticsKilled: 0
+  StatisticsKilled: 1
   StatisticsDeaths: 0
   StatisticsMaxKilled: 0
   StatisticsBonuses: 0
-  StatisticsDamage: 0
-  StatisticsRegeneration: 0
-  StatisticsEaten: 0
+  StatisticsDamage: 360
+  StatisticsRegeneration: 504
+  StatisticsEaten: 5
