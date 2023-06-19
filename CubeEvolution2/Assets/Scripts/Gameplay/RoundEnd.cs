@@ -19,6 +19,7 @@ public class RoundEnd : MonoBehaviour
 
     [SerializeField] private GameObject _fadeIn;
     [SerializeField] private RoundData _roundData;
+    [SerializeField] private CharacterLevel _characterLevel;
 
     [SerializeField] private int _exp;
     [SerializeField] private int _money;
@@ -31,6 +32,7 @@ public class RoundEnd : MonoBehaviour
 
     public void WinRound()
     {
+        SetBonus(2);
         gameObject.SetActive(true);
 
         _background.color = new Color32(74, 190, 255, 224);
@@ -45,6 +47,7 @@ public class RoundEnd : MonoBehaviour
 
     public void LoseRound()
     {
+        SetBonus(1);
         gameObject.SetActive(true);
         
         _background.color = new Color32(255, 74, 74, 224);
@@ -57,7 +60,14 @@ public class RoundEnd : MonoBehaviour
         CheckTextStatus();
     }
 
+    private void SetBonus(int multiplayer)
+    {
+        _exp = (_roundData.KillsAmount * 6 + _roundData.FoodAmount * 1) * multiplayer + 5;
+        _money = (_roundData.KillsAmount * 10 + _roundData.FoodAmount * 2) * multiplayer + 20;
 
+        UserData.AddMoney((int)_money);
+        _characterLevel.AddExp(_exp);
+    }
 
     private void CheckTextStatus()
     {
@@ -67,20 +77,18 @@ public class RoundEnd : MonoBehaviour
 
     private void SetTextExp()
     {
-        Debug.Log("SetTextExp");
         StartCoroutine(UpdaterTextBonus(_expText, _exp, "EXP"));
     }
 
     private void SetTextMoney()
     {
-        Debug.Log("SetTextMoney");
         StartCoroutine(UpdaterTextBonus(_moneyText, _money, "$"));
     }
 
     IEnumerator UpdaterTextBonus(TextMeshProUGUI curentText, int needAmount, string currency)
     {
         int curretAmount = 0;
-        int addAmount = needAmount / 20;
+        int addAmount = (int)(needAmount / (needAmount * .2f));
 
         while (needAmount > curretAmount)
         {
@@ -90,5 +98,7 @@ public class RoundEnd : MonoBehaviour
 
             yield return new WaitForSeconds(.05f);
         }
+        
+        curentText.SetText($"+{needAmount} {currency}");
     }
 }

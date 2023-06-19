@@ -38,6 +38,7 @@ public class TabsList : MonoBehaviour
     private void TabSelect(TabButton button)
     {
         int index = button.transform.GetSiblingIndex();
+        
         for (int i = 0; i < _tabs.Count; i++)
         {
             if (i == index)
@@ -49,6 +50,5 @@ public class TabsList : MonoBehaviour
             }
             else _tabs[i].SetActive(false);
         }
-        
     }
 }

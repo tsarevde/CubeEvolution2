@@ -17,6 +17,8 @@ public class RoundData : CharacterSelection
     public void Start()
     {
         KillsAmount = 0;
+        FoodAmount = 0;
+        
         _priorityFood = Random.Range(1, 6);
         onGetPriorityFood?.Invoke(_priorityFood);
 

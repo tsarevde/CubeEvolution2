@@ -23,6 +23,12 @@ public class Character : ScriptableObject
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
+    [SerializeField] private int _startHealth;
+    [SerializeField] private int _startDamage;
+    [SerializeField] private float _startSpeed;
+    public int StartHealth { get => _startHealth; }
+    public int StartDamage { get => _startDamage; }
+    public float StartSpeed { get => _startSpeed; }
     [SerializeField] private int _healthMax;
     [SerializeField] private int _damageMax;
     [SerializeField] private float _speedMax;

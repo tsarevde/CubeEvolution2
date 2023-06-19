@@ -17,10 +17,13 @@ MonoBehaviour:
   _name: FROG
   _description: Receives bonus for green cubes
   _unlockLevel: 16
-  _unlockPrice: 250
+  _unlockPrice: 2640
   _health: 364
   _damage: 67
   _speed: 6
+  _startHealth: 364
+  _startDamage: 67
+  _startSpeed: 6
   _healthMax: 2000
   _damageMax: 500
   _speedMax: 10
@@ -29,9 +32,9 @@ MonoBehaviour:
   BulletAmount: 4
   BulletSpeed: 8
   _currentLevel: 1
-  _maxLevel: 10
+  _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 5
+  _enoughtExp: 12
   StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0

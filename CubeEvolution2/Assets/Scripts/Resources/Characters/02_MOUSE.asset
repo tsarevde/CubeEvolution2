@@ -17,10 +17,13 @@ MonoBehaviour:
   _name: MOUSE
   _description: Receives bonus for gray cubes
   _unlockLevel: 4
-  _unlockPrice: 80
+  _unlockPrice: 512
   _health: 254
   _damage: 32
   _speed: 5
+  _startHealth: 254
+  _startDamage: 32
+  _startSpeed: 5
   _healthMax: 1400
   _damageMax: 200
   _speedMax: 7
@@ -29,16 +32,16 @@ MonoBehaviour:
   BulletAmount: 1
   BulletSpeed: 8
   _currentLevel: 1
-  _maxLevel: 10
+  _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 5
-  StatisticsPlayed: 0
-  StatisticsVictories: 0
+  _enoughtExp: 12
+  StatisticsPlayed: 2
+  StatisticsVictories: 2
   StatisticsLosses: 0
   StatisticsKilled: 0
   StatisticsDeaths: 0
   StatisticsMaxKilled: 0
   StatisticsBonuses: 0
   StatisticsDamage: 0
-  StatisticsRegeneration: 0
-  StatisticsEaten: 0
+  StatisticsRegeneration: 152
+  StatisticsEaten: 6

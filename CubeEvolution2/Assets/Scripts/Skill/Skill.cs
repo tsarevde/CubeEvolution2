@@ -18,7 +18,7 @@ public class Skill : CharacterSelection
     [SerializeField] private Sprite _spriteComplite;
     [SerializeField] private Sprite _spriteClose;
 
-    [Header("Bonus")]
+    [Header("Bonus (%)")]
     public TextMeshProUGUI _bonusText;
     public Image _bonusImage;
     private enum typeBonus
@@ -33,7 +33,7 @@ public class Skill : CharacterSelection
     [SerializeField] private Sprite _spriteDamage;
     [SerializeField] private Sprite _spriteSpeed;
 
-    [Header("Price")]
+    [Header("Price (%)")]
     public TextMeshProUGUI _priceText;
     public Image _currencyImage;
     public GameObject _buttonBuy;
@@ -43,31 +43,47 @@ public class Skill : CharacterSelection
     [SerializeField] private Sprite _spriteBuyDisable;
 
     [Header("Data")]
+    [SerializeField] private int _id;
     [SerializeField] private int _levelRequirement;
-    [SerializeField] private int _price;
+    [SerializeField] private float _price;
     [SerializeField] private bool _isDonate;
     [SerializeField] private bool _isComplite = false;
-    
-    private void Start()
-    {      
-        UserData.AddDonate(200);
-        UserData.AddMoney(200);
-    }
 
-    private void Update()
+    [SerializeField] private float _bonusAmountAll;
+    [SerializeField] private int _priceAll;
+
+    private void OnEnable()
     {
         if (_character[SelectionCharacter].CurrentLevel < _levelRequirement && !_isComplite) selectStatus = typeStatus.Close;
         if (_character[SelectionCharacter].CurrentLevel >= _levelRequirement && !_isComplite) selectStatus = typeStatus.Active;
-        SetStatus();
+
+        if (SkillList.SkillsList[SelectionCharacter].SkillsComplite.Count != 0)
+        {
+            foreach (var i in SkillList.SkillsList[SelectionCharacter].SkillsComplite)
+            {
+                if (i == _id) selectStatus = typeStatus.Complite;
+            }
+        }
 
         SetPrice();
         SetBonus();
+        SetStatus();
     }
 
     private void SetStatus(typeStatus type)
     {
         selectStatus = type;
         SetStatus();
+    }
+
+    //Цена
+    private void SetPrice()
+    {
+        _priceAll = (int)(_price * _character[SelectionCharacter].UnlockPrice);
+        _priceText.text = _priceAll.ToString();
+
+        if (_isDonate) _currencyImage.sprite = _spriteDonate;
+        else _currencyImage.sprite = _spriteMoney;
     }
 
     //Куплено, Доступно, Закрыто
@@ -112,38 +128,32 @@ public class Skill : CharacterSelection
         }
     }
 
-    //Цена
-    private void SetPrice()
-    {
-        _priceText.text = _price.ToString();
-
-        if (_isDonate) _currencyImage.sprite = _spriteDonate;
-        else _currencyImage.sprite = _spriteMoney;
-    }
-
     //Бонус за улучшение
     private void SetBonus()
     {
-        _bonusText.text = $"+ {_bonusEmount}";
-
         switch(selectBonus)
         {
             case typeBonus.Health:
             {
+                _bonusAmountAll = (int)(_bonusEmount / 100 * (_character[SelectionCharacter].HealthMax - _character[SelectionCharacter].StartHealth));
                 _bonusImage.sprite = _spriteHealth;
                 break;
             }
             case typeBonus.Damage:
             {
+                _bonusAmountAll = (int)(_bonusEmount / 100 * (_character[SelectionCharacter].DamageMax - _character[SelectionCharacter].StartDamage));
                 _bonusImage.sprite = _spriteDamage;
                 break;
             }
             case typeBonus.Speed:
             {
+                _bonusAmountAll = _bonusEmount / 100 * (_character[SelectionCharacter].SpeedMax - _character[SelectionCharacter].StartSpeed);
                 _bonusImage.sprite = _spriteSpeed;
                 break;
             }
         }
+
+        _bonusText.text = $"+ {_bonusAmountAll}";
     }
 
     //Купить улучшение
@@ -151,27 +161,28 @@ public class Skill : CharacterSelection
     {
         if (!CheckMoney()) return;
 
-        if (_isDonate) UserData.TakeDonate(_price);
-        else UserData.TakeMoney(_price);
+        if (_isDonate) UserData.TakeDonate(_priceAll);
+        else UserData.TakeMoney(_priceAll);
 
         _isComplite = true;
+        SkillList.SkillsList[SelectionCharacter].SkillsComplite.Add(_id);
         SetStatus(typeStatus.Complite);
 
         switch(selectBonus)
         {
             case typeBonus.Health:
             {
-                _character[SelectionCharacter].Health += (int)_bonusEmount;
+                _character[SelectionCharacter].Health += (int)_bonusAmountAll;
                 break;
             }
             case typeBonus.Damage:
             {
-                _character[SelectionCharacter].Damage += (int)_bonusEmount;
+                _character[SelectionCharacter].Damage += (int)_bonusAmountAll;
                 break;
             }
             case typeBonus.Speed:
             {
-                _character[SelectionCharacter].Speed += _bonusEmount;
+                _character[SelectionCharacter].Speed += _bonusAmountAll;
                 break;
             }
         }
@@ -182,11 +193,11 @@ public class Skill : CharacterSelection
     {
         if (_isDonate) 
         {
-            if (UserData.donate >= _price) return true;
+            if (UserData.donate >= _priceAll) return true;
         }
         else
         {
-            if (UserData.money >= _price) return true;
+            if (UserData.money >= _priceAll) return true;
         }    
 
         return false;

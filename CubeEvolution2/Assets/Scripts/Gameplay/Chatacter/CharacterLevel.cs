@@ -5,14 +5,13 @@ public class CharacterLevel : CharacterSelection
 {
     public static Action onExpChanged;
     
-    public void ExpGive(int amountExp)
+    public void AddExp(int amountExp)
     {
 
         if (amountExp > 0)
             _character[SelectionCharacter].CurrentExp += amountExp;
 
-        if (_character[SelectionCharacter].CurrentExp >= _character[SelectionCharacter].EnoughtExp)
-            LevelUP();
+        while (_character[SelectionCharacter].CurrentExp >= _character[SelectionCharacter].EnoughtExp) LevelUP();
         
         onExpChanged?.Invoke();
     }

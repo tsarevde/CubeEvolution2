@@ -17,10 +17,13 @@ MonoBehaviour:
   _name: FIRE
   _description: Receives bonus for red cubes
   _unlockLevel: 10
-  _unlockPrice: 130
+  _unlockPrice: 1275
   _health: 230
   _damage: 52
   _speed: 5
+  _startHealth: 230
+  _startDamage: 52
+  _startSpeed: 5
   _healthMax: 1700
   _damageMax: 380
   _speedMax: 8
@@ -29,9 +32,9 @@ MonoBehaviour:
   BulletAmount: 2
   BulletSpeed: 8
   _currentLevel: 1
-  _maxLevel: 10
+  _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 5
+  _enoughtExp: 12
   StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0

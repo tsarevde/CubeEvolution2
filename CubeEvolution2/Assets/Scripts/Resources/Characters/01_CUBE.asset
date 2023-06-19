@@ -17,10 +17,13 @@ MonoBehaviour:
   _name: CUBE
   _description: Receives bonus for white cubes
   _unlockLevel: 0
-  _unlockPrice: 0
+  _unlockPrice: 360
   _health: 176
   _damage: 46
   _speed: 4
+  _startHealth: 176
+  _startDamage: 46
+  _startSpeed: 4
   _healthMax: 1000
   _damageMax: 120
   _speedMax: 6
@@ -28,17 +31,17 @@ MonoBehaviour:
   AttackDistance: 10
   BulletAmount: 1
   BulletSpeed: 8
-  _currentLevel: 20
-  _maxLevel: 10
+  _currentLevel: 1
+  _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 5
-  StatisticsPlayed: 1
-  StatisticsVictories: 1
-  StatisticsLosses: 0
+  _enoughtExp: 12
+  StatisticsPlayed: 13
+  StatisticsVictories: 8
+  StatisticsLosses: 5
   StatisticsKilled: 1
-  StatisticsDeaths: 0
+  StatisticsDeaths: 5
   StatisticsMaxKilled: 0
   StatisticsBonuses: 0
-  StatisticsDamage: 360
-  StatisticsRegeneration: 504
-  StatisticsEaten: 5
+  StatisticsDamage: 760
+  StatisticsRegeneration: 1642
+  StatisticsEaten: 40
