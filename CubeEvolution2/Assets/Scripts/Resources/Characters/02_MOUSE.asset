@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6a6d0251ccc1f46b82aa4a559ca3ec, type: 3}
+  m_Name: 02_MOUSE
+  m_EditorClassIdentifier: 
+  _characterModel: {fileID: 4612526320742981418, guid: 61e3d56174d7bb54d96982e97b3b0212,
+    type: 3}
+  _name: MOUSE
+  _description: Receives bonus for gray cubes
+  _unlockLevel: 4
+  _unlockPrice: 512
+  _health: 254
+  _damage: 32
+  _speed: 5
+  _startHealth: 254
+  _startDamage: 32
+  _startSpeed: 5
+  _healthMax: 1400
+  _damageMax: 200
+  _speedMax: 7
+  Reloading: 2
+  AttackDistance: 10
+  BulletAmount: 1
+  BulletSpeed: 8
+  _currentLevel: 1
+  _maxLevel: 25
+  _currentExp: 0
+  _enoughtExp: 27
+  StatisticsPlayed: 2
+  StatisticsVictories: 2
+  StatisticsLosses: 0
+  StatisticsKilled: 0
+  StatisticsDeaths: 0
+  StatisticsMaxKilled: 0
+  StatisticsBonuses: 0
+  StatisticsDamage: 0
+  StatisticsRegeneration: 152
+  StatisticsEaten: 6
