@@ -1,7 +1,7 @@
 public static class UserData
 {
-    public static int money {get; private set;}
-    public static int donate {get; private set;}
+    public static int money {get; private set;} = 120;
+    public static int donate {get; private set;} = 16;
     public static int level {get; private set;}
     public static int currentExp {get; private set;}
     public static int enoughtExp {get; private set;}

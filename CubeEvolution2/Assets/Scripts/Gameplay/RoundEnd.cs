@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using TMPro;
-
 public class RoundEnd : MonoBehaviour
 {
     public static Action onRoundEnd;
@@ -32,6 +31,7 @@ public class RoundEnd : MonoBehaviour
 
     public void WinRound()
     {
+        UserData.AddDonate(UnityEngine.Random.Range(0, 3));
         SetBonus(2);
         gameObject.SetActive(true);
 

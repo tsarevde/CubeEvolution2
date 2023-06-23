@@ -27,6 +27,7 @@ public class CreatureHandler : Agent
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _rotationSpeed = 3f;
     public static Action onKilled;
+    [SerializeField] private RoundData _roundData;
 
     public override void Initialize()
     {
@@ -70,13 +71,15 @@ public class CreatureHandler : Agent
         OnEnvironmentReset?.Invoke();
         
         score = 0;
-        Health = 250;
-        Damage = 47;
+        Health = 200;
+        Damage = 37;
 
         transform.position = _startPosition + new Vector3 (Random.Range(-20, 20), 0 , Random.Range(-20, 20));
         transform.rotation = new Quaternion(0, Random.Range(0, 360), 0, 0);
         _rigidBody.velocity = Vector3.zero;
         _isReaload = true;
+
+        StartCoroutine(InDeathZone());
     }
 
     private void Shoot()
@@ -91,6 +94,7 @@ public class CreatureHandler : Agent
 
         GameObject bullet = Instantiate(_bullet, _point.transform.position, _point.transform.rotation);
         bullet.GetComponent<Bullet>().CreatureSender = this;
+        bullet.GetComponent<Bullet>().Damage = Damage;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -109,7 +113,7 @@ public class CreatureHandler : Agent
         {
             AddReward(-5.0f);
             score -= 5.0f;
-            EndEpisode();
+            //EndEpisode();
         }
 
         if (other.gameObject.CompareTag("Food"))
@@ -127,7 +131,9 @@ public class CreatureHandler : Agent
         if (Health - damage <= 0)
         {
             sender.RegisterKill();
-            EndEpisode();
+            _roundData.CreatureDeath();
+            Destroy(gameObject);
+            // EndEpisode();
         }
 
         else Health -= damage;
@@ -139,7 +145,9 @@ public class CreatureHandler : Agent
         if (Health - damage <= 0)
         {
             onKilled?.Invoke();
-            EndEpisode();
+            _roundData.CreatureDeath();
+            Destroy(gameObject);
+            // EndEpisode();
         }
 
         else Health -= damage;
@@ -155,5 +163,16 @@ public class CreatureHandler : Agent
     {
         AddReward(1.5f);
         score += -1.5f;
+    }
+
+    private IEnumerator InDeathZone()
+    {
+        while (true)
+        {
+            if (DeathZone.isOutsideCircleStatic(transform.position))
+                TakeDamage(5);
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

@@ -9,9 +9,6 @@ public class SelecetSkillTree : CharacterSelection
     private void OnEnable()
     {
         SelectSkillTree();
-        
-        UserData.AddMoney(50);
-        UserData.AddDonate(5);
     }
 
     private void SelectSkillTree()

@@ -34,7 +34,7 @@ MonoBehaviour:
   _currentLevel: 1
   _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 12
+  _enoughtExp: 27
   StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0

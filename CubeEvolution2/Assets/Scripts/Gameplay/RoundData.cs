@@ -8,7 +8,7 @@ public class RoundData : CharacterSelection
     public static Action<int> onFoodAmount;
     public static Action onFoodTake;
 
-    public int CreatureAmount {get; private set;} = 1;
+    public int CreatureAmount = 4;
     private static int _priorityFood;
     public int FoodAmount {get; private set;} = 0;
     public int KillsAmount = 0;
@@ -18,6 +18,7 @@ public class RoundData : CharacterSelection
     {
         KillsAmount = 0;
         FoodAmount = 0;
+        CreatureAmount = 4;
         
         _priorityFood = Random.Range(1, 6);
         onGetPriorityFood?.Invoke(_priorityFood);
@@ -48,5 +49,11 @@ public class RoundData : CharacterSelection
     private void CreatureKilled()
     {
         KillsAmount++;
+    }
+
+    public void CreatureDeath()
+    {
+        CreatureAmount--;
+        if (CreatureAmount <= 0) _roundEnd.WinRound();
     }
 }

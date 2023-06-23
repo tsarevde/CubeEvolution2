@@ -34,14 +34,14 @@ MonoBehaviour:
   _currentLevel: 1
   _maxLevel: 25
   _currentExp: 0
-  _enoughtExp: 12
+  _enoughtExp: 27
   StatisticsPlayed: 0
   StatisticsVictories: 0
   StatisticsLosses: 0
-  StatisticsKilled: 0
+  StatisticsKilled: 9
   StatisticsDeaths: 0
   StatisticsMaxKilled: 0
   StatisticsBonuses: 0
-  StatisticsDamage: 0
+  StatisticsDamage: 624
   StatisticsRegeneration: 0
   StatisticsEaten: 0

@@ -44,5 +44,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
